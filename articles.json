@@ -517,12 +517,36 @@
     "category": "Industry",
     "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
   },
-    {
+  {
     "id": 65,
     "title": "Musinsa helps Korean fashion labels break into China",
     "url": "https://www.koreaherald.com/article/10886279",
     "date": "2026-09-28",
     "category": "Consumer",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+  {
+    "id": 66,
+    "title": "Meta AI glasses tap Naver Map for hands-free navigation",
+    "url": "https://www.koreaherald.com/article/10887432",
+    "date": "2026-09-29",
+    "category": "Industry",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+  {
+    "id": 67,
+    "title": "KB Kookmin, Kakao explore future of digital assets",
+    "url": "https://www.koreaherald.com/article/10887641",
+    "date": "2026-09-29",
+    "category": "Business",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+  {
+    "id": 68,
+    "title": "Celltrion seeks new partners, clients at CPHIa",
+    "url": "https://www.koreaherald.com/article/10887642",
+    "date": "2026-09-29",
+    "category": "Industry",
     "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
   }
 ]
