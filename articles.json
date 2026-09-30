@@ -549,12 +549,36 @@
     "category": "Business",
     "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
   },
-    {
+  {
     "id": 69,
     "title": "Shinhan deepens Canton ties in digital asset push",
     "url": "https://www.koreaherald.com/article/10888004",
     "date": "2026-09-29",
     "category": "Business",
     "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
-  }
+  },
+  {
+    "id": 70,
+    "title": "Cosmax develops AI model to predict hair loss risk",
+    "url": "https://www.koreaherald.com/article/10888987",
+    "date": "2026-09-30",
+    "category": "Industry",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+{
+    "id": 71,
+    "title": "Olive Young’s growth spills over to nearby shops",
+    "url": "https://www.koreaherald.com/article/10888988",
+    "date": "2026-09-30",
+    "category": "Consumer",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+{
+    "id": 72,
+    "title": "Hanwha Aerospace advances reusable launch vehicle technology",
+    "url": "https://www.koreaherald.com/article/10889165",
+    "date": "2026-09-30",
+    "category": "Industry",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
 ]
