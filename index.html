@@ -1,1550 +1,3366 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youngseon Jung | Journalist</title>
-<meta name="description" content="Youngseon Jung — Journalist Portfolio">
+<meta name="theme-color" content="#2864B8">
+<title>Youngseon Jung | Talent Acquisition Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#f5f3ef;color:#151515;line-height:1.6}
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-:root{--black:#111;--paper:#f5f3ef;--white:#fff;--gray:#777;--light-gray:#d8d5cf;--red:#b52a2a;--max-width:1240px}
-.container{width:min(var(--max-width),calc(100% - 48px));margin:0 auto}
-section{padding:110px 0;border-bottom:1px solid var(--light-gray)}
-.section-label{margin-bottom:28px;color:var(--red);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
-.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,7vw,82px);font-weight:400;line-height:.95;letter-spacing:-.055em}
+/* =========================================
+   01. DESIGN SYSTEM
+========================================= */
+:root {
+  --brand-color: #2864B8;
+  --brand-light: #EAF1FA;
+  --brand-soft: #C9D9EF;
+  --on-brand: #FFFFFF;
+  --ink: #292F3A;
+  --muted: #7D8795;
+  --paper: #FAFBFD;
+  --white: #FFFFFF;
+  --line: #E7EBF1;
+  --font: Arial, "Noto Sans KR", sans-serif;
+  --content-width: 1120px;
+}
 
-header{position:sticky;top:0;z-index:100;background:rgba(245,243,239,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--light-gray)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:15px;font-weight:700;letter-spacing:-.02em}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:12px;font-weight:600;transition:color .2s}
-.nav-links a:hover{color:var(--red)}
+* { margin:0; padding:0; box-sizing:border-box; }
 
-.hero{min-height:calc(100vh - 72px);display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:95px;align-items:center;max-width:1120px;margin:0 auto;padding:0 20px}
-.hero-kicker{margin-bottom:28px;color:var(--red);font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
-.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(72px,11vw,150px);font-weight:400;line-height:.82;letter-spacing:-.075em;white-space:nowrap}
-.hero h1 span{display:block}
-.hero-description{max-width:390px;font-family:Georgia,"Times New Roman",serif;font-size:21px;line-height:1.4}
-.hero-meta{margin-top:28px;color:var(--gray);font-size:12px}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:85px;
+}
 
-/* SELECTED WORKS */
-.selected-works{background:var(--black);color:var(--white);border-bottom:1px solid #333}
-.selected-works .section-label{color:#d96b6b}
-.selected-header{display:block;margin-top:0}
-.selected-intro{max-width:430px;margin-top:28px;color:#aaa;font-size:14px}
-.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:65px}
-.featured-card{min-width:0}
-.featured-image{width:100%;aspect-ratio:4/3;overflow:hidden;background:#292929;margin-bottom:22px}
-.featured-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.featured-card:hover .featured-image img{transform:scale(1.03)}
-.featured-number{margin-bottom:10px;color:#777;font-family:Georgia,"Times New Roman",serif;font-size:13px}
-.featured-meta{margin-bottom:10px;color:#999;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.featured-title{color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:400;line-height:1.2;letter-spacing:-.025em}
-.featured-description{margin-top:12px;color:#999;font-size:13px}
-.featured-link{display:inline-block;margin-top:18px;color:#d96b6b;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.featured-link:hover{color:#fff}
+body {
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:100px;margin-top:70px}
-.about-text{font-family:Georgia,"Times New Roman",serif;font-size:clamp(25px,3vw,39px);line-height:1.25;letter-spacing:-.025em}
-.about-side{border-top:1px solid var(--black);padding-top:18px}
-.about-side p{max-width:600px;color:#444;font-size:15px}
-.about-side p+p{margin-top:18px}
-.interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
-.interest{padding:7px 12px;border:1px solid #aaa;border-radius:999px;font-size:11px}
+body.modal-open { overflow:hidden; }
 
-.education-list,.experience-list{margin-top:70px;border-top:1px solid var(--black)}
-.education-item,.experience-item{display:grid;grid-template-columns:.7fr 1.3fr;padding:30px 0;border-bottom:1px solid var(--light-gray)}
-.experience-item{gap:40px;padding:32px 0}
-.education-date,.experience-date{color:var(--gray);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
-.education-school,.experience-title{font-family:Georgia,"Times New Roman",serif;font-size:28px;line-height:1.15}
-.experience-title{font-size:29px}
-.education-detail,.experience-description{margin-top:8px;color:#666;font-size:14px}
-.experience-description{max-width:700px;margin-top:12px}
-.experience-org{margin-top:7px;font-size:14px;font-weight:700}
+a { color:inherit; text-decoration:none; }
+button, input { font:inherit; }
+button { cursor:pointer; }
+.hidden { display:none !important; }
 
-.articles-header{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
-.articles-header>div:first-child{display:block}
-.article-count{color:var(--gray);font-size:12px;white-space:nowrap}
-.article-controls{display:flex;flex-direction:column;gap:20px;margin-top:60px}
-.search-box input{width:100%;height:58px;padding:0 5px;background:transparent;border:0;border-bottom:1px solid var(--black);outline:none;font-size:17px}
-.search-box input::placeholder{color:#999}
-.category-list{display:flex;flex-wrap:wrap;gap:8px}
-.category-btn{padding:8px 15px;background:transparent;border:1px solid #aaa;border-radius:999px;cursor:pointer;font-size:11px;transition:.2s}
-.category-btn:hover,.category-btn.active{background:var(--black);color:#fff;border-color:var(--black)}
-.articles-list{margin-top:45px;border-top:1px solid var(--black)}
-.article-card{display:grid;grid-template-columns:60px 1fr 170px;gap:30px;padding:30px 0;border-bottom:1px solid var(--light-gray);transition:padding .2s}
-.article-card:hover{padding-left:8px;padding-right:8px}
-.article-number{color:#999;font-family:Georgia,"Times New Roman",serif;font-size:18px}
-.article-category{margin-bottom:7px;color:var(--red);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.article-title{font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:400;line-height:1.15;letter-spacing:-.025em}
-.article-description{max-width:750px;margin-top:10px;color:#666;font-size:14px}
-.article-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:13px}
-.article-tag{color:#777;font-size:10px}
-.article-tag:not(:last-child)::after{content:" / ";margin-left:5px}
-.article-meta{color:#777;font-size:12px;text-align:right}
-.article-outlet{margin-bottom:4px;color:var(--black);font-weight:700}
-.article-link{display:inline-block;margin-top:12px;color:var(--red);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.pagination{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:45px}
-.page-btn{min-width:38px;height:38px;padding:0 10px;background:transparent;border:1px solid #bbb;cursor:pointer;font-size:11px}
-.page-btn:hover,.page-btn.active{background:var(--black);color:#fff;border-color:var(--black)}
-.page-btn:disabled{opacity:.3;cursor:default}
-.loading,.no-results{padding:70px 0;color:var(--gray);font-family:Georgia,"Times New Roman",serif;font-size:20px;text-align:center}
-.no-results{display:none}
+.eyebrow {
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:var(--brand-color);
+}
 
-.contact-section{padding-top:62px;padding-bottom:112px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:78px}
-.contact-card{border-top:1px solid var(--black);padding-top:18px}
-.contact-label{margin-bottom:12px;color:var(--gray);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
-.contact-link{font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,3vw,38px);word-break:break-word}
-.contact-link:hover{color:var(--red)}
-footer{padding:25px 0}
-.footer-inner{display:flex;justify-content:space-between;color:#777;font-size:11px}
+.accent { color:var(--brand-color); }
 
-@media(max-width:800px){
-.container{width:calc(100% - 30px)}
-section{padding:75px 0}
-.nav{height:62px}
-.nav-links{gap:14px}
-.nav-links a{font-size:10px}
-.hero{min-height:auto;padding:100px 0}
-.hero-grid{grid-template-columns:1fr;gap:55px;max-width:none;margin:0;padding:0}
-.hero h1{font-size:clamp(65px,20vw,110px);white-space:normal}
-.selected-header{display:block;margin-top:0}
-.featured-grid{grid-template-columns:1fr;gap:50px;margin-top:45px}
-.about-grid{grid-template-columns:1fr;gap:50px;margin-top:50px}
-.education-item,.experience-item{grid-template-columns:1fr;gap:10px}
-.articles-header{align-items:flex-start;flex-direction:column}
-.article-card{grid-template-columns:1fr;gap:10px}
-.article-number{display:none}
-.article-meta{margin-top:5px;text-align:left}
-.contact-grid{grid-template-columns:1fr;gap:45px}
-.footer-inner{flex-direction:column;gap:8px}
+.section {
+  padding:110px max(7%,calc((100% - var(--content-width))/2));
+}
+
+.section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:45px;
+}
+
+.section-heading h2 {
+  font-size:clamp(34px,5vw,52px);
+  letter-spacing:-2px;
+  line-height:1.2;
+  margin-top:12px;
+}
+
+.section-subtitle {
+  max-width:350px;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.primary-button {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:13px;
+  padding:14px 21px;
+  background:var(--brand-color);
+  color:white;
+  border:1px solid var(--brand-color);
+  border-radius:5px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.5px;
+  transition:.25s;
+}
+
+.primary-button:hover {
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(35,25,55,.15);
+}
+
+.secondary-link {
+  font-size:10px;
+  font-weight:800;
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:5px;
+}
+
+button {
+  border:0;
+  background:none;
+}
+
+/* =========================================
+   02. ENTRY SCREEN
+========================================= */
+.entry-screen {
+  min-height:100vh;
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:30px 7%;
+}
+
+.entry-inner {
+  width:100%;
+  max-width:var(--content-width);
+  margin:0 auto;
+  min-height:calc(100vh - 60px);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.entry-header,
+.entry-footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--muted);
+}
+
+.wordmark {
+  font-size:25px;
+  font-weight:900;
+  color:var(--brand-color);
+  letter-spacing:-1px;
+}
+
+.wordmark span,
+.logo span { color:var(--brand-color); }
+
+.entry-content {
+  width:100%;
+  max-width:650px;
+  margin:80px auto;
+}
+
+.entry-content h1 {
+  font-size:clamp(48px,8vw,85px);
+  line-height:1.02;
+  letter-spacing:-4px;
+  margin:25px 0;
+}
+
+.entry-content h1 span { color:var(--brand-color); }
+
+.entry-description {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+}
+
+.entry-form {
+  margin-top:45px;
+  max-width:510px;
+}
+
+.entry-form>label {
+  display:block;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:12px;
+}
+
+.color-input-row {
+  display:flex;
+  gap:9px;
+}
+
+.color-input-row input[type="text"] {
+  flex:1;
+  min-width:0;
+  height:48px;
+  border:1px solid var(--line);
+  border-radius:5px;
+  background:white;
+  padding:0 15px;
+  font-size:12px;
+  outline:none;
+}
+
+.color-input-row input[type="text"]:focus {
+  border-color:var(--brand-color);
+}
+
+.color-picker-label {
+  width:48px;
+  height:48px;
+  border:1px solid var(--line);
+  border-radius:5px;
+  display:grid;
+  place-items:center;
+  background:white;
+  color:var(--brand-color);
+  font-size:23px;
+  cursor:pointer;
+  position:relative;
+}
+
+.color-picker-label input {
+  position:absolute;
+  inset:0;
+  opacity:0;
+  cursor:pointer;
+}
+
+.color-preview-row {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:13px;
+  font-size:10px;
+  font-weight:700;
+}
+
+#color-dot {
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:var(--brand-color);
+}
+
+#color-hex { color:var(--muted); }
+
+.error-message {
+  min-height:18px;
+  margin-top:7px;
+  color:#D94A4A;
+  font-size:10px;
+}
+
+#enter-button {
+  width:100%;
+  margin-top:10px;
+}
+
+.text-button {
+  display:block;
+  margin:16px auto 0;
+  font-size:9px;
+  font-weight:700;
+  color:var(--muted);
+  text-decoration:underline;
+}
+
+/* =========================================
+   03. NAVIGATION
+========================================= */
+.portfolio { min-height:100vh; }
+
+.navbar {
+  height:76px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(12px);
+}
+
+.logo {
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+  color:var(--ink);
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:23px;
+}
+
+.nav-links a {
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.6px;
+  color:var(--muted);
+  transition:.2s;
+}
+
+.nav-links a:hover { color:var(--brand-color); }
+
+.theme-button {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+  font-size:9px;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.theme-dot {
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--brand-color);
+}
+
+.mobile-menu-button {
+  display:none;
+  font-size:22px;
+  color:var(--ink);
+}
+
+/* =========================================
+   04. HERO
+========================================= */
+.hero {
+  padding:85px 7% 35px;
+  background:var(--paper);
+}
+
+.hero-inner {
+  max-width:var(--content-width);
+  margin:0 auto;
+  min-height:470px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:35px;
+}
+
+.hero-copy h1 {
+  font-size:clamp(43px,6vw,68px);
+  letter-spacing:-3px;
+  line-height:1.17;
+  margin:24px 0;
+}
+
+.hero-copy h1 span { color:var(--brand-color); }
+
+.hero-description {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+}
+
+.hero-actions {
+  display:flex;
+  align-items:center;
+  gap:25px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+
+.hero-visual {
+  min-height:390px;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-orbit {
+  position:absolute;
+  width:310px;
+  height:310px;
+  border:1px solid var(--brand-soft);
+  border-radius:50%;
+  animation:rotate 30s linear infinite;
+}
+
+.orbit-two {
+  width:390px;
+  height:390px;
+  border-style:dashed;
+  animation-direction:reverse;
+}
+
+.hero-circle {
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  background:var(--brand-color);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 25px 60px rgba(35,25,55,.15);
+  z-index:2;
+  animation:float 5s ease-in-out infinite;
+}
+
+.hero-circle strong {
+  font-size:88px;
+  line-height:1.1;
+  letter-spacing:-5px;
+}
+
+.circle-small {
+  font-size:9px;
+  letter-spacing:3px;
+  font-weight:800;
+}
+
+.floating-note {
+  position:absolute;
+  background:white;
+  padding:10px 13px;
+  border:1px solid var(--line);
+  border-radius:5px;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.5px;
+  box-shadow:0 5px 18px rgba(35,25,55,.06);
+  z-index:3;
+}
+
+.floating-note span {
+  color:var(--brand-color);
+  margin-right:5px;
+}
+
+.note-one { top:15%; left:3%; }
+.note-two { top:28%; right:0; }
+.note-three { bottom:23%; left:0; }
+.note-four { bottom:12%; right:4%; }
+
+.hero-bottom {
+  max-width:var(--content-width);
+  margin:45px auto 0;
+  padding-top:17px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:var(--muted);
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+/* =========================================
+   05. QUICK PROFILE
+========================================= */
+.quick-profile {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:28px 7%;
+  background:white;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.quick-profile>div {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-right:1px solid var(--line);
+}
+
+.quick-profile>div:last-child { border:0; }
+
+.quick-number {
+  font-size:22px;
+  font-weight:900;
+  color:var(--brand-color);
+}
+
+.quick-label {
+  font-size:8px;
+  color:var(--muted);
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+/* =========================================
+   06. ABOUT
+========================================= */
+.about-section { background:white; }
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr .85fr;
+  gap:65px;
+  align-items:start;
+}
+
+.story-label {
+  font-size:9px;
+  font-weight:800;
+  color:var(--brand-color);
+  letter-spacing:1px;
+  margin-bottom:15px;
+}
+
+.about-story h3 {
+  font-size:26px;
+  line-height:1.5;
+  letter-spacing:-1px;
+  margin-bottom:22px;
+}
+
+.about-story>p:not(.story-label) {
+  font-size:12px;
+  color:var(--muted);
+  line-height:2;
+  margin-bottom:15px;
+}
+
+.about-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:25px;
+}
+
+.about-tags span {
+  background:var(--brand-light);
+  color:var(--brand-color);
+  border-radius:30px;
+  padding:7px 12px;
+  font-size:9px;
+  font-weight:700;
+}
+
+.timeline-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:28px;
+}
+
+.timeline-heading {
+  display:flex;
+  justify-content:space-between;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--brand-color);
+  margin-bottom:24px;
+}
+
+.timeline {
+  border-left:1px solid var(--brand-soft);
+  margin-left:5px;
+}
+
+.timeline-item {
+  padding:0 0 25px 24px;
+  position:relative;
+}
+
+.timeline-item:last-child { padding-bottom:0; }
+
+.timeline-marker {
+  position:absolute;
+  left:-5px;
+  top:5px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--brand-color);
+  box-shadow:0 0 0 4px var(--brand-light);
+}
+
+.timeline-type {
+  color:var(--brand-color);
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.timeline-item h4 {
+  font-size:13px;
+  margin:5px 0;
+}
+
+.timeline-item p {
+  font-size:11px;
+  color:var(--muted);
+}
+
+.timeline-item strong {
+  font-size:11px;
+  color:var(--brand-color);
+}
+
+/* =========================================
+   07. EXPERIENCE
+========================================= */
+.experience-section { background:white; }
+
+.experience-list {
+  border-top:1px solid var(--line);
+}
+
+.experience-item {
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:22px;
+  align-items:center;
+  padding:20px 4px;
+  border-bottom:1px solid var(--line);
+}
+
+.experience-period {
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.experience-main h3 {
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.experience-main p {
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.8;
+}
+
+/* =========================================
+   08. COMPETENCIES
+========================================= */
+.competency-section { background:#F3F6FA; }
+
+.competency-intro {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:35px;
+}
+
+.competency-intro>div {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:19px 16px;
+}
+
+.competency-intro strong {
+  display:block;
+  color:var(--brand-color);
+  font-size:22px;
+}
+
+.competency-intro span {
+  display:block;
+  font-size:9px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.competency-intro p {
+  font-size:10px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.competency-tabs {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:30px;
+}
+
+.filter-button {
+  border:1px solid #DDE4ED;
+  background:transparent;
+  color:var(--muted);
+  border-radius:30px;
+  padding:9px 15px;
+  font-size:9px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background:var(--brand-color);
+  color:white;
+  border-color:var(--brand-color);
+}
+
+.project-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.project-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.project-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--brand-color);
+  box-shadow:0 15px 35px rgba(35,25,55,.08);
+}
+
+.project-image {
+  height:165px;
+  background:var(--brand-light);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.project-image-art {
+  width:105px;
+  height:105px;
+  border:1px solid var(--brand-soft);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--brand-color);
+  font-size:39px;
+  transition:.5s;
+}
+
+.project-card:hover .project-image-art {
+  transform:scale(1.12) rotate(10deg);
+}
+
+.project-index {
+  position:absolute;
+  left:16px;
+  top:13px;
+  font-size:9px;
+  font-weight:800;
+  color:var(--brand-color);
+}
+
+.project-category-label {
+  position:absolute;
+  right:14px;
+  bottom:13px;
+  background:white;
+  color:var(--brand-color);
+  padding:6px 10px;
+  border-radius:30px;
+  font-size:8px;
+  font-weight:800;
+}
+
+.project-content {
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.project-type {
+  font-size:9px;
+  font-weight:800;
+  color:var(--brand-color);
+}
+
+.project-content h3 {
+  font-size:18px;
+  letter-spacing:-.5px;
+  line-height:1.45;
+  margin:10px 0;
+}
+
+.project-content>p {
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.project-result {
+  color:var(--brand-color);
+  font-size:12px;
+  font-weight:800;
+  margin-top:16px;
+  line-height:1.6;
+}
+
+.project-portfolio-link {
+  color:var(--brand-color);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:.2s;
+}
+
+.project-portfolio-link:hover {
+  border-bottom-color:var(--brand-color);
+}
+
+.project-card-bottom {
+  border-top:1px solid var(--line);
+  margin-top:18px;
+  padding-top:13px;
+  display:flex;
+  justify-content:space-between;
+  font-size:9px;
+  font-weight:800;
+  color:var(--muted);
+}
+
+.project-card-bottom strong {
+  color:var(--brand-color);
+  font-size:17px;
+}
+
+.project-footer {
+  margin-top:25px;
+  padding-top:17px;
+  border-top:1px solid #DDE4ED;
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:800;
+}
+
+/* =========================================
+   09. TOOLS
+========================================= */
+.tools-section { background:white; }
+
+.tools-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.tool-card {
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:23px;
+  background:white;
+  transition:.2s;
+}
+
+.tool-card:hover {
+  transform:translateY(-3px);
+  border-color:var(--brand-color);
+}
+
+.tool-card-heading {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:18px;
+}
+
+.tool-icon {
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background:var(--brand-light);
+  color:var(--brand-color);
+  display:grid;
+  place-items:center;
+  font-size:22px;
+}
+
+.tool-card h3 { font-size:14px; }
+
+.tool-card-heading p {
+  font-size:8px;
+  color:var(--muted);
+  letter-spacing:1px;
+  font-weight:800;
+}
+
+.tool-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tool-tags span {
+  background:#F5F7FA;
+  border:1px solid var(--line);
+  padding:7px 10px;
+  border-radius:5px;
+  font-size:10px;
+}
+
+/* =========================================
+   10. TA JOURNEY
+========================================= */
+.journey-section { background:white; }
+
+.journey-track {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.journey-step {
+  flex:1;
+  text-align:center;
+}
+
+.journey-step>span {
+  font-size:10px;
+  color:var(--brand-color);
+  font-weight:800;
+}
+
+.journey-icon {
+  width:72px;
+  height:72px;
+  margin:17px auto;
+  border-radius:50%;
+  background:var(--brand-light);
+  color:var(--brand-color);
+  display:grid;
+  place-items:center;
+  font-size:29px;
+  transition:.3s;
+}
+
+.journey-step:hover .journey-icon {
+  background:var(--brand-color);
+  color:white;
+  transform:translateY(-5px);
+}
+
+.journey-step h3 {
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+.journey-step p {
+  max-width:175px;
+  margin:9px auto;
+  font-size:10px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.journey-line {
+  flex:.35;
+  height:1px;
+  background:var(--brand-soft);
+  margin-top:65px;
+}
+
+/* =========================================
+   11. PHILOSOPHY
+========================================= */
+.philosophy-section {
+  background:var(--brand-color);
+  color:white;
+}
+
+.philosophy-section .eyebrow {
+  color:white;
+  opacity:.8;
+}
+
+.philosophy-inner {
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:60px;
+  align-items:center;
+}
+
+.philosophy-heading h2 {
+  font-size:clamp(36px,5vw,58px);
+  line-height:1.25;
+  letter-spacing:-2px;
+  margin:23px 0;
+}
+
+.philosophy-heading h2 span { color:var(--brand-light); }
+
+.philosophy-heading>p:last-child {
+  font-size:12px;
+  line-height:2;
+  opacity:.88;
+  max-width:430px;
+}
+
+.philosophy-interactive {
+  background:white;
+  color:var(--ink);
+  border-radius:10px;
+  padding:28px;
+}
+
+.question-label {
+  color:var(--brand-color);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.philosophy-interactive h3 {
+  font-size:21px;
+  line-height:1.5;
+  margin:16px 0 20px;
+}
+
+.answer-options {
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.answer-button {
+  text-align:left;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:white;
+  padding:11px;
+  font-size:11px;
+  color:var(--ink);
+  transition:.2s;
+}
+
+.answer-button:hover,
+.answer-button.selected {
+  border-color:var(--brand-color);
+  background:var(--brand-light);
+  color:var(--brand-color);
+}
+
+.philosophy-response {
+  background:var(--brand-light);
+  border-radius:6px;
+  padding:14px;
+  font-size:11px;
+  line-height:1.8;
+  margin-top:16px;
+  min-height:65px;
+}
+
+.values-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+  margin-top:75px;
+}
+
+.value-item {
+  border-top:1px solid rgba(255,255,255,.4);
+  padding-top:18px;
+}
+
+.value-item>span {
+  font-size:10px;
+  opacity:.7;
+}
+
+.value-item h3 {
+  font-size:17px;
+  margin:12px 0;
+}
+
+.value-item p {
+  font-size:10px;
+  line-height:1.9;
+  opacity:.85;
+}
+
+/* =========================================
+   12. CONTACT
+========================================= */
+.contact-section {
+  text-align:center;
+  padding-top:120px;
+  padding-bottom:120px;
+}
+
+.contact-section h2 {
+  font-size:clamp(37px,6vw,68px);
+  line-height:1.25;
+  letter-spacing:-3px;
+  margin:25px 0;
+}
+
+.contact-section h2 span { color:var(--brand-color); }
+
+.contact-description {
+  font-size:12px;
+  line-height:2;
+  color:var(--muted);
+}
+
+.contact-email {
+  display:inline-block;
+  font-size:18px;
+  font-weight:800;
+  color:var(--brand-color);
+  border-bottom:1px solid var(--brand-color);
+  padding-bottom:6px;
+  margin-top:30px;
+}
+
+.contact-socials {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+.contact-socials a {
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.7px;
+}
+
+.contact-socials a:hover { color:var(--brand-color); }
+
+.footer {
+  border-top:1px solid var(--line);
+  padding:25px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:800;
+}
+
+.footer-logo {
+  font-size:23px;
+  color:var(--brand-color);
+}
+
+/* =========================================
+   13. PROJECT DETAIL MODAL
+========================================= */
+.project-modal {
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:30px 14px;
+}
+
+.modal-overlay {
+  position:absolute;
+  inset:0;
+  background:rgba(25,30,40,.72);
+  backdrop-filter:blur(5px);
+}
+
+.modal-panel {
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:850px;
+  max-height:calc(100vh - 60px);
+  overflow-y:auto;
+  background:var(--paper);
+  border-radius:12px;
+  animation:modalIn .3s ease;
+}
+
+.modal-close {
+  position:sticky;
+  top:13px;
+  float:right;
+  margin:13px 13px -48px 0;
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:50%;
+  background:white;
+  box-shadow:0 2px 12px rgba(0,0,0,.1);
+  font-size:23px;
+  z-index:5;
+}
+
+.modal-hero {
+  padding:60px 50px 38px;
+  background:var(--brand-light);
+}
+
+.modal-category {
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--brand-color);
+}
+
+.modal-hero h2 {
+  font-size:clamp(27px,4.5vw,40px);
+  line-height:1.3;
+  margin:17px 0;
+}
+
+.modal-hero>p {
+  font-size:12px;
+  color:var(--muted);
+}
+
+.modal-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:22px;
+  font-size:10px;
+}
+
+.modal-meta span { color:var(--muted); }
+
+.modal-meta strong {
+  color:var(--ink);
+  margin-left:5px;
+}
+
+.modal-body { padding:40px 50px; }
+
+.modal-summary {
+  font-size:14px;
+  line-height:1.9;
+  margin-bottom:30px;
+}
+
+.modal-stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
+  margin:25px 0 40px;
+}
+
+.modal-stat {
+  padding:18px 12px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:7px;
+}
+
+.modal-stat strong {
+  display:block;
+  font-size:23px;
+  color:var(--brand-color);
+}
+
+.modal-stat span {
+  font-size:9px;
+  color:var(--muted);
+}
+
+.detail-block {
+  border-top:1px solid var(--line);
+  padding:24px 0;
+}
+
+.detail-block h3 {
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.detail-block h3 span {
+  color:var(--brand-color);
+  margin-right:8px;
+}
+
+.detail-block p,
+.detail-block li {
+  font-size:12px;
+  line-height:2;
+  color:var(--muted);
+}
+
+.detail-block ul { padding-left:18px; }
+
+.detail-block li { margin:5px 0; }
+
+.detail-tools {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.detail-tools span {
+  border-radius:30px;
+  padding:7px 11px;
+  background:var(--brand-light);
+  color:var(--brand-color);
+  font-size:9px;
+  font-weight:800;
+}
+
+.project-external-link {
+  display:inline-flex;
+  padding:11px 16px;
+  background:var(--brand-light);
+  color:var(--brand-color);
+  border-radius:5px;
+  font-size:10px;
+  font-weight:800;
+}
+
+.modal-bottom {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 50px;
+  border-top:1px solid var(--line);
+  font-size:9px;
+  color:var(--muted);
+  font-weight:800;
+}
+
+.modal-bottom button {
+  border:0;
+  background:transparent;
+  color:var(--brand-color);
+  font-size:9px;
+  font-weight:800;
+}
+
+/* =========================================
+   14. ANIMATION & RESPONSIVE
+========================================= */
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-10px); }
+}
+
+@keyframes rotate {
+  to { transform:rotate(360deg); }
+}
+
+@keyframes modalIn {
+  from {
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(22px);
+  transition:.6s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+button:focus-visible,
+a:focus-visible,
+.project-card:focus-visible {
+  outline:3px solid var(--brand-color);
+  outline-offset:4px;
+}
+
+/* Desktop font size adjustment only */
+@media(min-width:901px) {
+  .section-subtitle {
+    font-size:calc(12px + .5pt);
+  }
+
+  .tool-tags span {
+    font-size:calc(10px + .5pt);
+  }
+}
+
+@media(max-width:900px) {
+  .about-grid,
+  .philosophy-inner {
+    grid-template-columns:1fr;
+    gap:38px;
+  }
+
+  .competency-intro {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .experience-item {
+    grid-template-columns:150px 1fr;
+  }
+}
+
+@media(max-width:650px) {
+  .section {
+    padding:72px 6%;
+  }
+
+  .section-heading {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .entry-screen { padding:24px 6%; }
+
+  .entry-content { margin:60px 0; }
+
+  .entry-content h1 { letter-spacing:-2px; }
+
+  .navbar {
+    padding:0 6%;
+    height:64px;
+  }
+
+  .mobile-menu-button { display:block; }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:64px;
+    left:0;
+    width:100%;
+    padding:20px 6%;
+    background:white;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  .nav-links.open { display:flex; }
+
+  .theme-button {
+    margin-left:auto;
+    margin-right:13px;
+  }
+
+  .hero { padding:60px 6% 32px; }
+
+  .hero-inner { grid-template-columns:1fr; }
+
+  .hero-copy h1 {
+    font-size:42px;
+    letter-spacing:-2px;
+  }
+
+  .hero-visual { min-height:310px; }
+
+  .hero-orbit {
+    width:260px;
+    height:260px;
+  }
+
+  .orbit-two {
+    width:310px;
+    height:310px;
+  }
+
+  .hero-circle {
+    width:165px;
+    height:165px;
+  }
+
+  .hero-circle strong { font-size:68px; }
+
+  .quick-profile {
+    grid-template-columns:repeat(2,1fr);
+    padding:23px 5%;
+  }
+
+  .quick-profile>div:nth-child(2) { border-right:0; }
+
+  .project-grid,
+  .tools-grid {
+    grid-template-columns:1fr;
+  }
+
+  .experience-item {
+    grid-template-columns:1fr;
+    gap:7px;
+  }
+
+  .journey-track {
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .journey-step {
+    width:100%;
+    display:grid;
+    grid-template-columns:35px 52px 1fr;
+    align-items:center;
+    text-align:left;
+    gap:8px;
+  }
+
+  .journey-icon {
+    width:45px;
+    height:45px;
+    margin:0;
+    font-size:22px;
+    grid-row:1/3;
+  }
+
+  .journey-step>span { grid-row:1/3; }
+
+  .journey-step h3,
+  .journey-step p {
+    grid-column:3;
+  }
+
+  .journey-step p {
+    margin:0;
+    max-width:none;
+  }
+
+  .journey-line { display:none; }
+
+  .values-grid {
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+
+  .contact-section h2 {
+    font-size:38px;
+    letter-spacing:-1.5px;
+  }
+
+  .footer {
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .project-modal { padding:10px 7px; }
+
+  .modal-panel {
+    max-height:calc(100vh - 20px);
+  }
+
+  .modal-hero { padding:52px 23px 28px; }
+
+  .modal-body { padding:27px 23px; }
+
+  .modal-stats { gap:7px; }
+
+  .modal-stat { padding:13px 7px; }
+
+  .modal-stat strong { font-size:18px; }
+
+  .modal-bottom { padding:16px 22px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="container nav">
-<a href="#top" class="logo">YOUNGSEON JUNG</a>
+<!-- =====================================
+     COLOR ENTRY
+===================================== -->
+<section id="entry-screen" class="entry-screen">
+  <div class="entry-inner">
 
-<nav>
-<ul class="nav-links">
-<li><a href="#selected-works">Selected Works</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#articles">Articles</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+    <header class="entry-header">
+      <a href="#" class="wordmark">YSJ<span>.</span></a>
+      <span>TALENT ACQUISITION PORTFOLIO · 2026</span>
+    </header>
 
-</div>
-</header>
+    <main class="entry-content">
+      <p class="eyebrow">A PORTFOLIO THAT SPEAKS YOUR BRAND</p>
 
+      <h1>ENTER YOUR<br><span>COMPANY'S COLOR.</span></h1>
 
-<main id="top">
+      <p class="entry-description">
+        Explore my Talent Acquisition portfolio in your company's brand color.
+        <br>기업의 컬러로 정영선의 TA 포트폴리오를 만나보세요.
+      </p>
 
+      <div class="entry-form">
+        <label for="company-color">ENTER A COLOR NAME OR HEX CODE</label>
 
-<!-- HERO -->
+        <div class="color-input-row">
+          <input
+            id="company-color"
+            type="text"
+            list="color-suggestions"
+            placeholder="e.g. blue, navy, green, #2864B8"
+            autocomplete="off"
+          >
 
-<section class="hero">
+          <datalist id="color-suggestions">
+            <option value="blue">
+            <option value="navy">
+            <option value="sky blue">
+            <option value="green">
+            <option value="dark green">
+            <option value="red">
+            <option value="yellow">
+            <option value="purple">
+            <option value="orange">
+            <option value="pink">
+            <option value="teal">
+            <option value="black">
+          </datalist>
 
-<div class="container">
+          <label class="color-picker-label">
+            <input type="color" id="color-picker" value="#2864B8">
+            +
+          </label>
+        </div>
 
-<div class="hero-grid">
+        <div class="color-preview-row">
+          <span id="color-dot"></span>
+          <span id="color-preview-name">Blue</span>
+          <span id="color-hex">#2864B8</span>
+        </div>
 
-<div>
+        <p id="color-error" class="error-message"></p>
 
-<div class="hero-kicker">
-Journalist / Researcher
-</div>
+        <button id="enter-button" class="primary-button">
+          Explore Portfolio <span>↗</span>
+        </button>
 
-<h1>
-Youngseon
-<span>Jung.</span>
-</h1>
+        <button id="default-button" class="text-button">
+          Continue with default blue
+        </button>
+      </div>
+    </main>
 
-</div>
+    <footer class="entry-footer">
+      <span>YOUNGSEON JUNG</span>
+      <span>PEOPLE FIRST, PROCESS EXCELLENCE.</span>
+    </footer>
 
-
-<div>
-
-<p class="hero-description">
-Stories that help us understand Korea and the world.
-</p>
-
-<p class="hero-meta">
-Journalism · International Affairs · Business · Society
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 
-
-<!-- SELECTED WORKS -->
-
-<section id="selected-works" class="selected-works">
-
-<div class="container">
-
-<div class="section-label">
-01 / Selected Works
-</div>
-
-<div class="selected-header">
-
-<h2 class="section-title">
-Selected Works
-</h2>
-
-<p class="selected-intro">
-A selection of stories and reporting I have worked on.
-</p>
-
-</div>
-
-<div
-class="featured-grid"
-id="featuredGrid">
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="section-label">
-02 / About
-</div>
-
-<h2 class="section-title">
-About me
-</h2>
-
-
-<div class="about-grid">
-
-
-<div class="about-text">
-
-I am interested in journalism that does more than deliver facts — journalism that helps readers understand the context behind them.
-
-</div>
-
-
-<div class="about-side">
-
-<p>
-I studied History and Sociology at Ewha Womans University and developed an interest in international affairs through my studies and experiences abroad.
-</p>
-
-<p>
-My reporting interests include Korea's relationship with the world, business and economy, society, culture and issues that require careful research and explanation.
-</p>
-
-
-<div class="interests">
-
-<span class="interest">
-Korea & Global Affairs
-</span>
-
-<span class="interest">
-Business & Economy
-</span>
-
-<span class="interest">
-Society & Culture
-</span>
-
-<span class="interest">
-International Reporting
-</span>
-
-<span class="interest">
-Research & Translation
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-<div class="container">
-
-<div class="section-label">
-03 / Education
-</div>
-
-<h2 class="section-title">
-Education
-</h2>
-
-
-<div class="education-list">
-
-
-<div class="education-item">
-
-<div class="education-date">
-Mar 2021 — Feb 2027
-</div>
-
-<div>
-
-<div class="education-school">
-Ewha Womans University
-</div>
-
-<div class="education-detail">
-History & Sociology
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="education-item">
-
-<div class="education-date">
-Jan 2024 — Apr 2024
-</div>
-
-<div>
-
-<div class="education-school">
-The University of British Columbia
-</div>
-
-<div class="education-detail">
-Exchange Student · International Law Club · Human Rights, Refugees & Territorial Disputes
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="education-item">
-
-<div class="education-date">
-July 2025
-</div>
-
-<div>
-
-<div class="education-school">
-The University of Edinburgh
-</div>
-
-<div class="education-detail">
-Language Training & International Project
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-<div class="container">
-
-<div class="section-label">
-04 / Experience
-</div>
-
-<h2 class="section-title">
-Experience
-</h2>
-
-
-<div class="experience-list">
-
-
-<div class="experience-item">
-
-<div class="experience-date">
-July 2025
-</div>
-
-<div>
-
-<div class="experience-title">
-International Project
-</div>
-
-<div class="experience-org">
-The University of Edinburgh
-</div>
-
-<div class="experience-description">
-Worked as the leader of a five-person team on a bilingual project about mobility rights and accessibility. Conducted interviews and produced a short video in Korean and English.
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="experience-item">
-
-<div class="experience-date">
-Jan 2025 — Feb 2025
-</div>
-
-<div>
-
-<div class="experience-title">
-Editorial Intern
-</div>
-
-<div class="experience-org">
-CNN
-</div>
-
-<div class="experience-description">
-Monitored Korean and international news, prepared English news summaries, conducted research and supported reporting related to Korea for international audiences.
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="experience-item">
-
-<div class="experience-date">
-Feb 2023 — Dec 2023
-</div>
-
-<div>
-
-<div class="experience-title">
-Reporter
-</div>
-
-<div class="experience-org">
-Supreme Prosecutors' Office of Korea
-</div>
-
-<div class="experience-description">
-Covered and researched legal and social issues through a reporter program.
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="experience-item">
-
-<div class="experience-date">
-Aug 2022 — Jan 2023
-</div>
-
-<div>
-
-<div class="experience-title">
-University Reporter
-</div>
-
-<div class="experience-org">
-Ewha Womans University
-</div>
-
-<div class="experience-description">
-Reported on university and student-related issues and produced written content.
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="experience-item">
-
-<div class="experience-date">
-Aug 2022 — Dec 2022
-</div>
-
-<div>
-
-<div class="experience-title">
-Media & Fact-Checking Program
-</div>
-
-<div class="experience-org">
-Media & Fact-Checking Activities
-</div>
-
-<div class="experience-description">
-Conducted interviews and research on fact-checking topics and produced media content.
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ARTICLES -->
-
-<section id="articles">
-
-<div class="container">
-
-
-<div class="articles-header">
-
-<div>
-
-<div class="section-label">
-05 / Articles
-</div>
-
-<h2 class="section-title">
-Articles
-</h2>
-
-</div>
-
-<div
-class="article-count"
-id="articleCount">
-Loading...
-</div>
-
-</div>
-
-
-
-<div class="article-controls">
-
-<div class="search-box">
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search articles..."
-autocomplete="off">
-
-</div>
-
-
-<div
-class="category-list"
-id="categoryList">
-</div>
-
-</div>
-
-
-
-<div
-class="articles-list"
-id="articlesList">
-
-<div class="loading">
-Loading articles...
-</div>
-
-</div>
-
-
-<div
-class="no-results"
-id="noResults">
-No articles found.
-</div>
-
-
-<div
-class="pagination"
-id="pagination">
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- CONTACT -->
-
-<section
-id="contact"
-class="contact-section">
-
-<div class="container">
-
-
-<div class="section-label">
-06 / Contact
-</div>
-
-<h2 class="section-title">
-Let's talk.
-</h2>
-
-
-<div class="contact-grid">
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-Email
-</div>
-
-<a
-href="mailto:jyoungseon8@gmail.com"
-class="contact-link">
-jyoungseon8@gmail.com
-</a>
-
-</div>
-
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-LinkedIn
-</div>
-
-<a
-href="https://www.linkedin.com/in/youngseon/"
-target="_blank"
-rel="noopener noreferrer"
-class="contact-link">
-linkedin.com/in/youngseon
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-<div class="container">
-
-<div class="footer-inner">
-
-<div>
-© 2026 Youngseon Jung
-</div>
-
-<div>
-Journalist Portfolio
-</div>
-
-</div>
-
+<!-- =====================================
+     MAIN PORTFOLIO
+===================================== -->
+<div id="portfolio" class="portfolio hidden">
+
+  <nav class="navbar">
+    <a href="#home" class="logo">YSJ<span>.</span></a>
+
+    <div class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#competencies">COMPETENCIES</a>
+      <a href="#tools">TOOLS</a>
+      <a href="#perspective">MY PERSPECTIVE</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+    <button id="change-theme" class="theme-button">
+      <span class="theme-dot"></span> Change Color
+    </button>
+
+    <button id="mobile-menu-button" class="mobile-menu-button">
+      ☰
+    </button>
+  </nav>
+
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-copy">
+        <p class="eyebrow">
+          TALENT ACQUISITION · PEOPLE & ORGANIZATION
+        </p>
+
+        <h1>
+          People First,<br>
+          <span>Process Excellence.</span>
+        </h1>
+
+        <p class="hero-description">
+          사람을 중심에 두고, 채용의 모든 과정을 세심하게 설계합니다.
+          <br>
+          채용 운영부터 지원자 경험, 영입 브랜딩과 온보딩까지.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#competencies" class="primary-button">
+            Explore My Competencies ↓
+          </a>
+
+          <a href="#about" class="secondary-link">
+            About Me ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+
+        <div class="hero-circle">
+          <span class="circle-small">TALENT</span>
+          <strong>TA</strong>
+          <span class="circle-small">ACQUISITION</span>
+        </div>
+
+        <div class="floating-note note-one">
+          <span>01</span> METICULOUSNESS
+        </div>
+
+        <div class="floating-note note-two">
+          <span>02</span> EXECUTION
+        </div>
+
+        <div class="floating-note note-three">
+          <span>03</span> COMMUNICATION
+        </div>
+
+        <div class="floating-note note-four">
+          <span>04</span> BRANDING
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-bottom">
+      <span>YOUNGSEON JUNG</span>
+      <span>SCROLL TO DISCOVER ↓</span>
+      <span>SEOUL, SOUTH KOREA</span>
+    </div>
+  </section>
+
+
+  <!-- QUICK PROFILE -->
+  <section class="quick-profile">
+    <div>
+      <span class="quick-number">4.45 / 4.50</span>
+      <span class="quick-label">GPA</span>
+    </div>
+
+    <div>
+      <span class="quick-number">3</span>
+      <span class="quick-label">EDUCATIONAL EXPERIENCES</span>
+    </div>
+
+    <div>
+      <span class="quick-number">04</span>
+      <span class="quick-label">CORE COMPETENCIES</span>
+    </div>
+
+    <div>
+      <span class="quick-number">09</span>
+      <span class="quick-label">KEY PROJECTS</span>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section about-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / ABOUT ME</p>
+        <h2>About Me<span class="accent">.</span></h2>
+      </div>
+
+      <p class="section-subtitle">
+        사람과 사회를 이해하는 시선, 다양한 환경에서 쌓은 경험.
+      </p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-story">
+        <p class="story-label">A LITTLE ABOUT ME</p>
+
+        <h3>
+          사람을 이해하는 시선으로
+          <br>조직의 경험을 고민합니다.
+        </h3>
+
+        <p>
+          이화여자대학교에서 사학과 사회학을 전공하며
+          사람과 사회, 조직을 바라보는 관점을 길렀습니다.
+        </p>
+
+        <p>
+          캐나다 브리티시컬럼비아대학교 교환학생과
+          영국 에든버러대학교 어학연수를 통해
+          다양한 배경을 가진 사람들과 소통하며
+          글로벌 관점을 넓혔습니다.
+        </p>
+
+        <p>
+          이러한 경험을 바탕으로 채용의 각 접점에서
+          지원자와 조직 모두에게 더 나은 경험을 만드는
+          TA 담당자로 성장하고자 합니다.
+        </p>
+
+        <div class="about-tags">
+          <span>People-oriented</span>
+          <span>Meticulous</span>
+          <span>Global Perspective</span>
+          <span>Continuous Improvement</span>
+        </div>
+      </div>
+
+
+      <div class="timeline-card">
+        <div class="timeline-heading">
+          <span>EDUCATION & GLOBAL EXPERIENCE</span>
+          <span>PROFILE</span>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <span class="timeline-marker"></span>
+            <div>
+              <span class="timeline-type">HIGH SCHOOL</span>
+              <h4>고양국제고등학교</h4>
+              <p>Graduated</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-marker"></span>
+            <div>
+              <span class="timeline-type">UNDERGRADUATE</span>
+              <h4>이화여자대학교</h4>
+              <p>History & Sociology</p>
+              <strong>GPA 4.45 / 4.50</strong>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-marker"></span>
+            <div>
+              <span class="timeline-type">EXCHANGE STUDENT · 2024</span>
+              <h4>The University of British Columbia</h4>
+              <p>Vancouver, Canada</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-marker"></span>
+            <div>
+              <span class="timeline-type">LANGUAGE PROGRAMME · 2025</span>
+              <h4>The University of Edinburgh</h4>
+              <p>Edinburgh, United Kingdom</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section experience-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">02 / EXPERIENCE</p>
+        <h2>Experience<span class="accent">.</span></h2>
+      </div>
+
+      <p class="section-subtitle">
+        다양한 조직과 프로젝트에서 사람을 만나고,
+        운영과 콘텐츠를 직접 기획하며 쌓은 경험입니다.
+      </p>
+    </div>
+
+    <div class="experience-list">
+
+      <article class="experience-item">
+        <span class="experience-period">2025.07 – 2025.08</span>
+        <div class="experience-main">
+          <h3>The University of Edinburgh · Barrier-free Video Project</h3>
+          <p>팀장으로서 사회적 소수자의 이동권을 주제로 영상 프로젝트를 기획하고 제작했습니다. 경기도미래세대재단 대표이사장상을 수상했습니다.</p>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <span class="experience-period">2025.03 – 2026.02</span>
+        <div class="experience-main">
+          <h3>Ewha International Law Society · HR Director</h3>
+          <p>신입회원 모집과 면접 일정 조율, 구성원 출결·활동 관리, 온보딩 가이드 제작 등 인사 운영을 담당했습니다.</p>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <span class="experience-period">2024.01 – 2024.04</span>
+        <div class="experience-main">
+          <h3>The University of British Columbia · Exchange Student</h3>
+          <p>캐나다 밴쿠버에서 교환학생으로 수학하며 다양한 문화적 배경을 가진 구성원들과 교류했습니다.</p>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <span class="experience-period">2022.08 – 2023.01</span>
+        <div class="experience-main">
+          <h3>Ewha Womans University · Reporter</h3>
+          <p>대학 관련 소식을 취재하고 기사와 콘텐츠를 작성했습니다.</p>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <span class="experience-period">2022.08 – 2022.12</span>
+        <div class="experience-main">
+          <h3>Korea Press Foundation · Fact-checking Ambassador</h3>
+          <p>팩트체크 콘텐츠를 제작하고 자막을 포함한 홍보 영상을 제작했습니다.</p>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <span class="experience-period">2021.03 – 2022.12</span>
+        <div class="experience-main">
+          <h3>Ewha Womans University · Humanities Student Council</h3>
+          <p>인문과학대학 학생회 기획국장으로서 행사와 조직 운영을 기획하고 구성원 간 업무를 조율했습니다.</p>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <span class="experience-period">2021.03 – 2022.12</span>
+        <div class="experience-main">
+          <h3>Ewha Womans University · Admissions Supporters</h3>
+          <p>입학처 서포터즈로 활동하며 수험생 대상 정보 콘텐츠와 온라인 멘토링을 지원했습니다.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- COMPETENCIES -->
+  <section id="competencies" class="section competency-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">03 / WHAT I BRING</p>
+        <h2>Core Competencies<span class="accent">.</span></h2>
+      </div>
+
+      <p class="section-subtitle">
+        Talent Acquisition 업무에 필요한 네 가지 역량과
+        이를 증명하는 주요 프로젝트를 소개합니다.
+      </p>
+    </div>
+
+    <div class="competency-intro">
+      <div>
+        <strong>01</strong>
+        <span>METICULOUSNESS · 꼼꼼함</span>
+        <p>세부 사항까지 확인하고 정확한 운영 기준을 지킵니다.</p>
+      </div>
+
+      <div>
+        <strong>02</strong>
+        <span>EXECUTION · 실행력</span>
+        <p>문제를 발견하는 데 그치지 않고 개선을 실행합니다.</p>
+      </div>
+
+      <div>
+        <strong>03</strong>
+        <span>COMMUNICATION · 커뮤니케이션</span>
+        <p>상대의 입장을 살피고 명확하게 소통합니다.</p>
+      </div>
+
+      <div>
+        <strong>04</strong>
+        <span>BRANDING · 브랜딩</span>
+        <p>채용 브랜딩과 기업 브랜딩으로 조직의 가치와 매력을 전달합니다.</p>
+      </div>
+    </div>
+
+    <div class="competency-tabs">
+      <button class="filter-button active" data-filter="all">전체 프로젝트</button>
+      <button class="filter-button" data-filter="meticulousness">01 꼼꼼함</button>
+      <button class="filter-button" data-filter="execution">02 실행력</button>
+      <button class="filter-button" data-filter="communication">03 소통</button>
+      <button class="filter-button" data-filter="branding">04 브랜딩</button>
+    </div>
+
+    <div class="project-grid" id="project-grid"></div>
+
+    <div class="project-footer">
+      <span>프로젝트 카드를 클릭하면 상세 내용을 확인할 수 있습니다.</span>
+      <span id="project-count"></span>
+    </div>
+  </section>
+
+
+  <!-- TOOLS -->
+  <section id="tools" class="section tools-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">04 / TOOLS & SKILLS</p>
+        <h2>Tools I Use<span class="accent">.</span></h2>
+      </div>
+
+      <p class="section-subtitle">
+        문서 작성부터 데이터 관리, 콘텐츠 제작과 웹 구현까지
+        목적에 맞는 도구를 활용합니다.
+      </p>
+    </div>
+
+    <div class="tools-grid" id="tools-grid"></div>
+  </section>
+
+
+  <!-- TA JOURNEY -->
+  <section class="journey-section section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">05 / CANDIDATE EXPERIENCE</p>
+        <h2>TA Journey<span class="accent">.</span></h2>
+      </div>
+
+      <p class="section-subtitle">
+        지원자가 조직을 처음 만나는 순간부터 합류 이후까지,
+        모든 접점을 세심하게 설계합니다.
+      </p>
+    </div>
+
+    <div class="journey-track">
+
+      <div class="journey-step">
+        <span>01</span>
+        <div class="journey-icon">⌕</div>
+        <h3>ATTRACT</h3>
+        <p>조직의 매력을 전달하고 적합한 인재와 만납니다.</p>
+      </div>
+
+      <div class="journey-line"></div>
+
+      <div class="journey-step">
+        <span>02</span>
+        <div class="journey-icon">▤</div>
+        <h3>RECRUIT</h3>
+        <p>공정하고 정확한 전형 운영으로 채용 과정을 지원합니다.</p>
+      </div>
+
+      <div class="journey-line"></div>
+
+      <div class="journey-step">
+        <span>03</span>
+        <div class="journey-icon">♡</div>
+        <h3>ONBOARD</h3>
+        <p>새로운 구성원이 조직에 안정적으로 적응하도록 돕습니다.</p>
+      </div>
+
+      <div class="journey-line"></div>
+
+      <div class="journey-step">
+        <span>04</span>
+        <div class="journey-icon">✳</div>
+        <h3>CONNECT</h3>
+        <p>구성원 간 연결을 만들고 긍정적인 조직 경험을 이어갑니다.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PHILOSOPHY -->
+  <section id="perspective" class="section philosophy-section">
+    <div class="philosophy-inner">
+
+      <div class="philosophy-heading">
+        <p class="eyebrow">06 / MY PERSPECTIVE</p>
+
+        <h2>
+          Every Touchpoint<br>
+          <span>Shapes Experience.</span>
+        </h2>
+
+        <p>
+          채용은 단순히 인재를 선발하는 과정이 아니라,
+          지원자가 조직을 경험하는 첫 번째 여정이라고 생각합니다.
+          작은 안내와 소통 하나까지 세심하게 설계하겠습니다.
+        </p>
+      </div>
+
+      <div class="philosophy-interactive">
+        <span class="question-label">WHAT MATTERS MOST IN TA?</span>
+
+        <h3>좋은 채용 경험을 만드는 가장 중요한 요소는 무엇일까요?</h3>
+
+        <div class="answer-options">
+          <button class="answer-button" data-answer="a">
+            A. 전형 과정의 명확한 안내
+          </button>
+
+          <button class="answer-button" data-answer="b">
+            B. 지원자를 존중하는 태도
+          </button>
+
+          <button class="answer-button" data-answer="c">
+            C. 신속하고 정확한 결과 전달
+          </button>
+        </div>
+
+        <div class="philosophy-response" id="philosophy-response">
+          선택지를 클릭하면 저의 생각을 확인할 수 있습니다.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="values-grid">
+
+      <div class="value-item">
+        <span>01</span>
+        <h3>PEOPLE FIRST</h3>
+        <p>모든 업무의 중심에 사람을 두고 상대의 입장을 먼저 생각합니다.</p>
+      </div>
+
+      <div class="value-item">
+        <span>02</span>
+        <h3>ACCURACY</h3>
+        <p>작은 정보도 놓치지 않고 정확한 기준에 따라 업무를 수행합니다.</p>
+      </div>
+
+      <div class="value-item">
+        <span>03</span>
+        <h3>COMMUNICATION</h3>
+        <p>상대방이 이해하기 쉬운 방식으로 명확하게 소통합니다.</p>
+      </div>
+
+      <div class="value-item">
+        <span>04</span>
+        <h3>BRANDING</h3>
+        <p>일관된 메시지와 경험으로 조직의 가치와 매력을 전달합니다.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <p class="eyebrow">07 / CONTACT</p>
+
+    <h2>
+      Let's Create<br>
+      <span>Better Experiences.</span>
+    </h2>
+
+    <p class="contact-description">
+      사람을 이해하고, 경험을 설계하며, 조직의 성장을 돕겠습니다.
+      <br>함께 더 나은 채용 경험을 만들어가고 싶습니다.
+    </p>
+
+    <a href="mailto:" class="contact-email">
+      Get in Touch ↗
+    </a>
+
+    <div class="contact-socials">
+      <a
+        href="https://www.linkedin.com/in/youngseon/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LINKEDIN ↗
+      </a>
+
+      <a
+        href="https://jyoungseon.github.io/hrdesign/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        HR DESIGN PORTFOLIO ↗
+      </a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="#home" class="footer-logo">YSJ.</a>
+    <span>People First, Process Excellence.</span>
+    <span>© 2026 YOUNGSEON JUNG</span>
+  </footer>
+
+</div>
+
+
+<!-- PROJECT DETAIL MODAL -->
+<div id="project-modal" class="project-modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <div class="modal-panel">
+    <button id="modal-close" class="modal-close" aria-label="Close">×</button>
+
+    <div id="modal-content"></div>
+
+    <div class="modal-bottom">
+      <span>YOUNGSEON JUNG · TA PORTFOLIO</span>
+      <button id="modal-bottom-close">BACK TO PROJECTS ↑</button>
+    </div>
+  </div>
 </div>
-
-</footer>
-
 
 
 <script>
+/* ---------------------------------------
+   01. HELPERS
+--------------------------------------- */
 
-const ARTICLES_PER_PAGE=8;
+const $ = selector => document.querySelector(selector);
 
-let allArticles=[];
-let filteredArticles=[];
-let currentPage=1;
-let currentCategory="All";
-let currentSearch="";
+let previousFocus = null;
 
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[character]);
+}
 
-const articlesList=
-document.getElementById("articlesList");
+function getColorValue(input) {
+  if (!input) return null;
 
-const categoryList=
-document.getElementById("categoryList");
+  const value = input.trim().toLowerCase();
 
-const pagination=
-document.getElementById("pagination");
+  const colorNames = {
+    blue:"#2864B8",
+    navy:"#172B4D",
+    "sky blue":"#65A9E8",
+    green:"#2E8B57",
+    "dark green":"#145A32",
+    red:"#D94A4A",
+    yellow:"#E5B93D",
+    purple:"#7956A8",
+    orange:"#E58A36",
+    pink:"#D9789B",
+    teal:"#278C8C",
+    black:"#292F3A"
+  };
 
-const searchInput=
-document.getElementById("searchInput");
+  if (colorNames[value]) return colorNames[value];
 
-const articleCount=
-document.getElementById("articleCount");
+  if (/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(value)) {
+    if (value.length === 4) {
+      return "#" + value.slice(1).split("").map(char => char + char).join("");
+    }
 
-const noResults=
-document.getElementById("noResults");
-
-const featuredGrid=
-document.getElementById("featuredGrid");
-
-
-
-async function loadArticles(){
-
-try{
-
-const response = await fetch(
-  `./articles.json?v=${Date.now()}`,
-  {
-    cache: "no-store"
+    return value.toUpperCase();
   }
-);
 
-if(!response.ok)
-throw new Error(
-"articles.json could not be loaded."
-);
+  return null;
+}
 
-allArticles=
-await response.json();
+function getColorName(input) {
+  const value = input.trim().toLowerCase();
+
+  const names = {
+    blue:"Blue",
+    navy:"Navy",
+    "sky blue":"Sky Blue",
+    green:"Green",
+    "dark green":"Dark Green",
+    red:"Red",
+    yellow:"Yellow",
+    purple:"Purple",
+    orange:"Orange",
+    pink:"Pink",
+    teal:"Teal",
+    black:"Black"
+  };
+
+  return names[value] || "Custom Color";
+}
+
+function rgbToHex(color) {
+  return color.toUpperCase();
+}
 
 
-allArticles.sort(
-(a,b)=>
-String(b.date||"")
-.localeCompare(
-String(a.date||"")
-)
-);
+/* ---------------------------------------
+   02. COLOR THEME
+--------------------------------------- */
 
+const colorInput = $("#company-color");
+const colorPicker = $("#color-picker");
+const colorDot = $("#color-dot");
+const colorHex = $("#color-hex");
+const colorPreviewName = $("#color-preview-name");
+const colorError = $("#color-error");
 
-filteredArticles =
-  allArticles.filter(
-    article =>
-      article.showInArticles !== false
+function previewColor(input) {
+  const color = getColorValue(input);
+
+  if (!color) {
+    colorError.textContent = "색상 이름 또는 HEX 코드를 확인해주세요.";
+    return false;
+  }
+
+  colorError.textContent = "";
+
+  colorDot.style.background = color;
+  colorPreviewName.textContent = getColorName(input);
+  colorHex.textContent = color.toUpperCase();
+  colorPicker.value = color;
+
+  return true;
+}
+
+function applyColor(color) {
+  document.documentElement.style.setProperty("--brand-color",color);
+
+  const light = mixColor(color,"#FFFFFF",.9);
+  const soft = mixColor(color,"#FFFFFF",.72);
+
+  document.documentElement.style.setProperty("--brand-light",light);
+  document.documentElement.style.setProperty("--brand-soft",soft);
+
+  colorDot.style.background = color;
+  colorHex.textContent = color.toUpperCase();
+}
+
+function mixColor(color1,color2,weight) {
+  const normalize = color => {
+    let value = color.replace("#","");
+
+    if (value.length === 3) {
+      value = value.split("").map(character => character + character).join("");
+    }
+
+    return [
+      parseInt(value.substring(0,2),16),
+      parseInt(value.substring(2,4),16),
+      parseInt(value.substring(4,6),16)
+    ];
+  };
+
+  const first = normalize(color1);
+  const second = normalize(color2);
+
+  const mixed = first.map((value,index) =>
+    Math.round(value * weight + second[index] * (1-weight))
   );
 
-
-createCategoryButtons();
-
-renderFeaturedArticles();
-
-renderArticles();
-
-
+  return "#" + mixed.map(value =>
+    value.toString(16).padStart(2,"0")
+  ).join("").toUpperCase();
 }
 
-catch(error){
+function showPortfolio(color,updateURL=true) {
+  applyColor(color);
 
-console.error(error);
+  $("#entry-screen").classList.add("hidden");
+  $("#portfolio").classList.remove("hidden");
 
+  if (updateURL) {
+    const hex = color.replace("#","");
 
-articlesList.innerHTML=
-'<div class="loading">Articles could not be loaded.<br><small>Make sure articles.json is in the same folder as index.html.</small></div>';
+    history.replaceState(
+      null,
+      "",
+      `${location.pathname}?color=${hex}`
+    );
+  }
 
+  window.scrollTo(0,0);
 
-articleCount.textContent=
-"Error loading articles.";
-
+  initReveal();
 }
 
+colorInput.addEventListener("input",() => {
+  previewColor(colorInput.value);
+});
+
+colorPicker.addEventListener("input",() => {
+  colorInput.value = colorPicker.value;
+  previewColor(colorPicker.value);
+});
+
+$("#enter-button").addEventListener("click",() => {
+  const color = getColorValue(colorInput.value);
+
+  if (!color) {
+    colorError.textContent = "색상 이름 또는 HEX 코드를 확인해주세요.";
+    return;
+  }
+
+  showPortfolio(color);
+});
+
+$("#default-button").addEventListener("click",() => {
+  colorInput.value = "blue";
+  showPortfolio("#2864B8");
+});
+
+$("#change-theme").addEventListener("click",() => {
+  $("#entry-screen").classList.remove("hidden");
+  $("#portfolio").classList.add("hidden");
+
+  colorInput.value = "blue";
+  previewColor("blue");
+
+  window.scrollTo(0,0);
+});
+
+
+/* ---------------------------------------
+   03. PROJECT DATA
+--------------------------------------- */
+
+const projects = [
+
+{
+  id:"eils-recruitment",
+  number:"01",
+  category:"meticulousness",
+  categoryName:"METICULOUSNESS",
+  organization:"Ewha International Law Society",
+  role:"HR Director",
+  period:"2025",
+  title:"Designing a Structured Recruitment Process",
+  subtitle:"Building a consistent and efficient recruitment process.",
+  description:"이화국제법학회 인사부장으로서 신입회원 모집과 면접 운영을 담당했습니다.",
+  icon:"▤",
+  stats:[
+    {value:"30",label:"APPLICANTS"},
+    {value:"8",label:"NEW MEMBERS"},
+    {value:"67%",label:"TIME SAVED"}
+  ],
+  background:"신입회원 모집 과정에서 지원자별 면접 일정을 조율하고 평가 기준을 일관되게 적용할 필요가 있었습니다.",
+  problem:"지원자 30명의 면접 일정을 개별적으로 조율하는 데 많은 시간이 소요됐고, 평가 기준을 통일할 필요가 있었습니다.",
+  actions:[
+    "지원자 30명의 서류 평가표를 작성하고 통일된 채점 기준을 마련했습니다.",
+    "서류 합격자 중 면접 대상자 12명의 가능 시간을 취합했습니다.",
+    "AI 도구를 활용해 면접 일정을 조율한 뒤 일정 중복 여부를 직접 검토했습니다.",
+    "지원자별 면접 시간과 순서를 Excel로 정리해 당일 운영 상황을 확인할 수 있도록 했습니다."
+  ],
+  result:"면접 일정 조율 소요 시간을 약 1시간에서 20분으로 단축해 업무 시간을 약 67% 절감했습니다.",
+  contribution:"지원자 서류 평가 기준 마련, 면접 일정 취합·조율, 일정 검수 및 면접 당일 운영 자료 정리를 담당했습니다.",
+  tools:["Excel","AI Tools"],
+  tags:["Recruitment","Screening","Scheduling","Process Improvement"],
+  highlight:"60 min → 20 min"
+},
+
+{
+  id:"student-council-interview",
+  number:"02",
+  category:"meticulousness",
+  categoryName:"METICULOUSNESS",
+  organization:"Ewha Womans University · Humanities Student Council",
+  role:"Planning Bureau Head / Interviewer",
+  period:"2021–2022",
+  title:"Designing a Structured Interview Process",
+  subtitle:"Evaluating candidates through role-based questions.",
+  description:"기획국의 주요 업무와 필요 역량을 바탕으로 면접 질문을 직접 설계하고 지원자 평가 및 선발에 참여했습니다.",
+  icon:"⌕",
+  stats:[
+    {value:"COMMON",label:"QUESTION DESIGN"},
+    {value:"INDIVIDUAL",label:"QUESTIONS"},
+    {value:"INTERVIEWER",label:"ROLE"}
+  ],
+  background:"기획국의 업무를 함께 수행할 신규 구성원을 모집하면서 지원자의 경험과 역할 적합성을 함께 살펴볼 필요가 있었습니다.",
+  problem:"지원자마다 경험과 강점이 다른 만큼 동일한 질문만으로는 개별 역량을 충분히 파악하기 어려웠습니다.",
+  actions:[
+    "기획국의 주요 업무와 필요 역량을 바탕으로 공통 면접 질문을 직접 설계했습니다.",
+    "지원자별 경험과 특성을 고려한 개별 질문을 구성했습니다.",
+    "면접관으로 참여해 지원자의 답변과 역량을 평가했습니다.",
+    "평가 결과를 바탕으로 신규 구성원 선발에 참여했습니다."
+  ],
+  result:"공통 질문으로 기본 역량을 확인하고 개별 질문으로 지원자별 경험을 살펴보는 면접 방식을 운영했습니다.",
+  contribution:"면접 질문 설계, 지원자별 질문 구성, 면접 진행 및 평가에 참여했습니다.",
+  tools:["Interview Design","Evaluation Criteria"],
+  tags:["Interviewing","Talent Selection","Evaluation"],
+  highlight:"Structured Interviews"
+},
+
+{
+  id:"eils-candidate",
+  number:"03",
+  category:"branding",
+  categoryName:"RECRUITMENT BRANDING",
+  organization:"Ewha International Law Society",
+  role:"HR Director",
+  period:"2025",
+  title:"Building Recruitment Branding through Candidate Experience",
+  subtitle:"Communicating organizational values through every candidate touchpoint.",
+  description:"지원자가 학회를 처음 만나는 채용 과정에서 안내와 소통의 접점을 세심하게 설계했습니다.",
+  icon:"♡",
+  stats:[
+    {value:"BEFORE",label:"INTERVIEW GUIDANCE"},
+    {value:"DURING",label:"INTERVIEW EXPERIENCE"},
+    {value:"AFTER",label:"CANDIDATE FEEDBACK"}
+  ],
+  background:"면접은 지원자가 조직을 처음 경험하는 중요한 접점입니다. 평가뿐 아니라 지원자가 느끼는 긴장과 정보의 불확실성도 고려해야 한다고 생각했습니다.",
+  problem:"낯선 면접 장소와 진행 방식은 지원자에게 부담이 될 수 있어 전형 전후로 필요한 정보를 명확하게 안내하고 편안하게 대화할 수 있는 환경을 마련하고자 했습니다.",
+  actions:[
+    "면접실과 대기실 위치 및 이용 안내를 준비했습니다.",
+    "면접 당일 지원자가 편안하게 이야기할 수 있도록 분위기를 고려했습니다.",
+    "면접 진행 과정에서 지원자에게 필요한 안내를 제공했습니다.",
+    "불합격자에게 피드백을 전달해 결과 안내 과정의 소통을 보완했습니다."
+  ],
+  result:"면접 전·중·후의 안내와 소통을 세심하게 살피며 지원자 관점의 채용 경험을 실천했습니다.",
+  contribution:"면접 공간 안내, 현장 응대, 면접 분위기 조성 및 불합격자 피드백을 담당했습니다.",
+  tools:["Communication","Interview Operations","Information Design"],
+  tags:["Candidate Experience","Interview Branding","Candidate Communication"],
+  highlight:"Every Touchpoint Matters"
+},
+
+{
+  id:"admissions-db",
+  number:"04",
+  category:"execution",
+  categoryName:"EXECUTION",
+  organization:"Ewha Womans University · Admissions Supporters",
+  role:"Admissions Supporter",
+  period:"2021–2022",
+  title:"Building a Q&A Database for Applicants",
+  subtitle:"Improving response consistency through structured information management.",
+  description:"수험생의 질문을 수집하고 정확한 입학 정보를 확인해 답변을 축적하는 온라인 멘토링 DB를 구축했습니다.",
+  icon:"▤",
+  stats:[
+    {value:"GOOGLE",label:"FORMS"},
+    {value:"Q&A",label:"DATABASE"},
+    {value:"1,900",label:"VIDEO VIEWS"}
+  ],
+  background:"수험생들이 입학 전형과 대학생활에 관해 유사한 질문을 반복적으로 남겼습니다. 정확하고 일관된 답변을 제공할 수 있는 자료가 필요했습니다.",
+  problem:"반복 문의에 매번 새롭게 답변하면 대응 효율이 낮아지고 안내 내용의 일관성을 유지하기 어려울 수 있었습니다.",
+  actions:[
+    "Google Forms로 수험생 질문을 수집했습니다.",
+    "질문별 관련 입학 정보를 확인한 뒤 정확한 답변을 작성했습니다.",
+    "Google Docs에 질문과 답변을 축적해 Q&A 데이터베이스를 구축했습니다.",
+    "기존 답변을 활용해 유사 문의에 효율적으로 대응하고 내용을 지속적으로 보완했습니다."
+  ],
+  result:"반복 문의에 활용할 수 있는 답변 DB를 구축해 온라인 멘토링의 정보 일관성과 대응 효율을 높였습니다.",
+  contribution:"질문 수집, 정보 확인, 답변 작성 및 데이터베이스 정리를 담당했습니다.",
+  tools:["Google Forms","Google Docs"],
+  tags:["FAQ","Information Management","Communication"],
+  highlight:"Reusable Q&A Database"
+},
+
+{
+  id:"admissions-fair",
+  number:"05",
+  category:"communication",
+  categoryName:"COMMUNICATION",
+  organization:"Ewha Womans University · Admissions Office",
+  role:"Admissions Operations Assistant",
+  period:"2021–2022",
+  title:"Supporting Applicants at Large-scale Events",
+  subtitle:"Providing clear guidance in high-volume environments.",
+  description:"대학입시박람회와 논술·면접 전형 현장에서 방문객 안내 및 운영을 지원했습니다.",
+  icon:"◎",
+  stats:[
+    {value:"2 YEARS",label:"CONSECUTIVE EXPERIENCE"},
+    {value:"COEX",label:"ADMISSIONS FAIR"},
+    {value:"ON-SITE",label:"CANDIDATE SUPPORT"}
+  ],
+  background:"대규모 입학설명회와 전형 현장에서는 많은 방문객이 낯선 공간을 이동하며 필요한 정보를 빠르게 확인해야 합니다.",
+  problem:"고사장과 이동 경로를 정확히 안내하고 다양한 문의에 대응해야 전형과 행사가 원활하게 진행될 수 있었습니다.",
+  actions:[
+    "코엑스에서 열린 수시·정시 대학입시박람회 등 대규모 행사에서 2년 연속 방문객 안내와 현장 운영을 보조했습니다.",
+    "논술·면접 전형 현장에서 수험생과 보호자에게 고사장 및 이동 경로를 안내했습니다.",
+    "현장 상황에 맞춰 문의에 대응하고 필요한 정보를 전달했습니다."
+  ],
+  result:"대규모 행사와 전형 현장에서 방문객이 필요한 정보를 확인하고 원활하게 이동할 수 있도록 지원했습니다.",
+  contribution:"방문객 안내, 현장 문의 응대 및 행사·전형 운영 보조를 담당했습니다.",
+  tools:["On-site Operations","Communication","Information Guidance"],
+  tags:["Event Operations","Candidate Support","Communication"],
+  highlight:"Two Years of Field Experience"
+},
+
+{
+  id:"career-reporter",
+  number:"06",
+  category:"communication",
+  categoryName:"COMMUNICATION",
+  organization:"Ewha Womans University · Industry-Academic Cooperation Foundation",
+  role:"Career Reporter",
+  period:"2022",
+  title:"Creating Career Content Based on Student Needs",
+  subtitle:"Connecting audience insights with real professional experiences.",
+  description:"학생들의 실제 취업 고민을 파악하고 현직자의 경험을 연결한 취업 정보 콘텐츠를 기획·제작했습니다.",
+  icon:"✳",
+  stats:[
+    {value:"20+",label:"STUDENTS INTERVIEWED"},
+    {value:"DIRECT",label:"PROFESSIONAL OUTREACH"},
+    {value:"CONTENT",label:"PLANNING & PRODUCTION"}
+  ],
+  background:"취업을 준비하는 학생들에게는 일반적인 정보뿐 아니라 자신의 상황에 맞는 현실적인 조언과 현직자의 경험이 필요했습니다.",
+  problem:"일방적으로 정보를 전달하기보다 학생들이 실제로 궁금해하는 내용을 파악해 콘텐츠 주제와 형식에 반영할 필요가 있었습니다.",
+  actions:[
+    "취업 관련 행사와 교과목 개설 등 정보를 조사해 카드뉴스를 기획·제작했습니다.",
+    "학생 약 20명을 직접 인터뷰해 취업 준비 과정에서 궁금한 점과 현직자에게 듣고 싶은 조언을 파악했습니다.",
+    "학생들의 질문에 답할 수 있는 취업자를 직접 섭외하고 인터뷰를 진행했습니다.",
+    "인터뷰 내용을 정리해 블로그 콘텐츠로 작성했습니다.",
+    "취업 멘토링 행사 운영을 지원하고 참여 멘토를 인터뷰해 콘텐츠 제작에 활용했습니다."
+  ],
+  result:"학생 수요를 바탕으로 취업 정보와 실제 경험을 연결한 콘텐츠를 제작했습니다.",
+  contribution:"정보 조사, 학생 인터뷰, 취업자 섭외, 인터뷰 진행, 카드뉴스 기획 및 블로그 글 작성을 담당했습니다.",
+  tools:["Card News","Blog","Interview Planning","Content Writing"],
+  tags:["Content Strategy","Audience Research","Storytelling"],
+  highlight:"20+ Student Interviews"
+},
+
+{
+  id:"hr-design",
+  number:"07",
+  category:"branding",
+  categoryName:"CORPORATE BRANDING",
+  organization:"Independent Portfolio Project",
+  role:"Content Planner & Designer",
+  period:"2026",
+  title:"Corporate Branding through HR Design",
+  subtitle:"Building a consistent visual identity through HR content.",
+  description:"그래픽 디자인, 프레젠테이션, 에디토리얼, 영상 콘텐츠를 정리한 HR 디자인 포트폴리오입니다.",
+  icon:"✳",
+  stats:[
+    {value:"04",label:"DESIGN CATEGORIES"},
+    {value:"MULTI",label:"CONTENT FORMATS"},
+    {value:"HR",label:"FOCUSED PORTFOLIO"}
+  ],
+  background:"HR 업무에서는 채용과 조직의 정보를 정확하게 전달하는 동시에 구성원과 지원자가 쉽게 이해하고 관심을 가질 수 있도록 시각적으로 구성하는 역량도 중요하다고 생각했습니다.",
+  problem:"복잡한 정보를 효과적으로 전달하려면 대상과 목적에 맞는 콘텐츠 기획 및 시각화가 필요합니다.",
+  actions:[
+    "카드뉴스와 포스터 등 그래픽 디자인 작업을 기획·제작했습니다.",
+    "정보를 구조화한 프레젠테이션 자료를 제작했습니다.",
+    "뉴스레터와 매거진 등 에디토리얼 콘텐츠를 제작했습니다.",
+    "숏폼과 롱폼 영상 콘텐츠를 기획·제작했습니다.",
+    "작업물을 HR Design 포트폴리오 웹사이트에 정리했습니다."
+  ],
+  result:"HR 관련 정보 전달과 콘텐츠 제작 역량을 별도 포트폴리오로 구성했습니다.",
+  contribution:"콘텐츠 기획, 정보 구조화, 시각 디자인 및 미디어 제작을 수행했습니다.",
+  tools:["Adobe Photoshop","Canva","MiriCanvas","Mangoboard","Adobe Premiere Pro","PowerPoint"],
+  tags:["Visual Communication","Content Production","Graphic Design"],
+  highlight:"Explore HR Design Portfolio",
+  externalLink:"https://jyoungseon.github.io/hrdesign/"
+},
+
+{
+  id:"eils-onboarding",
+  number:"08",
+  category:"execution",
+  categoryName:"EXECUTION",
+  organization:"Ewha International Law Society",
+  role:"HR Director",
+  period:"2025",
+  title:"Building a Structured Onboarding Guide",
+  subtitle:"Turning recurring mistakes into a systematic learning resource.",
+  description:"학회원 보고서에서 반복되는 각주 오류를 분석하고 작성 가이드를 제작해 신입회원 오리엔테이션에서 공유했습니다.",
+  icon:"▤",
+  stats:[
+    {value:"8 → 3",label:"AVERAGE PENALTY"},
+    {value:"62.5%",label:"REDUCTION"},
+    {value:"2",label:"GUIDE FORMATS"}
+  ],
+  background:"학회원들의 보고서에서 각주 작성 오류가 반복적으로 발생했습니다. 개별 오류를 수정하는 것만으로는 같은 문제가 재발하는 것을 막기 어려웠습니다.",
+  problem:"명확한 작성 기준과 신규 회원이 참고할 수 있는 공통 안내 자료가 부재했습니다.",
+  actions:[
+    "보고서에서 반복되는 각주 오류를 확인하고 원인을 파악했습니다.",
+    "각주 작성 기준을 체계화했습니다.",
+    "Word와 PowerPoint로 안내 자료를 제작했습니다.",
+    "신입회원 오리엔테이션에서 가이드를 공유해 구성원이 기준을 숙지하도록 지원했습니다."
+  ],
+  result:"평균 각주 벌점을 8점에서 3점으로 줄여 약 62.5% 개선했습니다.",
+  contribution:"작성 가이드 기획 및 제작, 오리엔테이션 교육과 개선 결과 확인을 담당했습니다.",
+  tools:["Microsoft Word","PowerPoint"],
+  tags:["Onboarding","Guideline Design","Process Improvement"],
+  highlight:"62.5% Reduction"
+},
+
+{
+  id:"eils-data",
+  number:"09",
+  category:"meticulousness",
+  categoryName:"METICULOUSNESS",
+  organization:"Ewha International Law Society",
+  role:"HR Director",
+  period:"2025",
+  title:"Managing Member Attendance and Activity Data",
+  subtitle:"Maintaining accurate records and transparent communication.",
+  description:"회원 20명의 주간 출결과 벌점 현황을 Excel로 관리하고 분기별 개인 현황을 안내했습니다.",
+  icon:"▥",
+  stats:[
+    {value:"20",label:"MEMBERS"},
+    {value:"WEEKLY",label:"RECORD UPDATES"},
+    {value:"QUARTERLY",label:"INDIVIDUAL REPORTS"}
+  ],
+  background:"구성원의 활동 내역과 관련 규정을 일관되게 관리하고 개인별 현황을 투명하게 공유할 필요가 있었습니다.",
+  problem:"출결과 벌점 기록이 지속적으로 갱신되지 않거나 관리 기준이 명확하게 전달되지 않으면 구성원이 자신의 활동 현황을 파악하기 어려울 수 있었습니다.",
+  actions:[
+    "회원 20명의 주간 출결 및 벌점 현황을 Excel로 기록·관리했습니다.",
+    "활동 기록을 지속적으로 갱신했습니다.",
+    "분기별로 개인별 현황을 안내했습니다.",
+    "관련 규정과 관리 기준을 명확하게 전달했습니다."
+  ],
+  result:"구성원별 활동 내역을 체계적으로 관리하고 관리 기준을 명확하게 공유했습니다.",
+  contribution:"출결·벌점 데이터 기록, 정기 업데이트 및 개인별 현황 안내를 담당했습니다.",
+  tools:["Excel"],
+  tags:["HR Administration","Data Management","Record Keeping"],
+  highlight:"20 Members Managed"
 }
 
-
-
-/* FEATURED ARTICLES */
-
-function renderFeaturedArticles(){
-
-
-let featured=
-
-allArticles
-.filter(
-a=>a.featured===true
-)
-.sort(
-(a,b)=>
-String(b.date||"")
-.localeCompare(
-String(a.date||"")
-)
-)
-.slice(0,3);
-
-
-
-featuredGrid.innerHTML=
-
-featured.map(
-(article,index)=>{
-
-
-const image=
-
-article.image
-
-?
-
-`<div class="featured-image">
-<img
-src="${escapeAttribute(article.image)}"
-alt="${escapeAttribute(article.title||"")}"
-loading="lazy">
-</div>`
-
-:
-
-`<div class="featured-image"></div>`;
-
-
-const link=
-
-article.url
-
-?
-
-`<a
-href="${escapeAttribute(article.url)}"
-target="_blank"
-rel="noopener noreferrer"
-class="featured-link">
-Read Article →
-</a>`
-
-:
-
-"";
-
-
-return `
-
-<article class="featured-card">
-
-${image}
-
-<div class="featured-number">
-0${index+1}
-</div>
-
-<div class="featured-meta">
-${escapeHTML(article.outlet||article.category||"Journalism")}
-·
-${formatDate(article.date)}
-</div>
-
-<h3 class="featured-title">
-${escapeHTML(article.title||"")}
-</h3>
-
-${
-article.description
-?
-`<p class="featured-description">
-${escapeHTML(article.description)}
-</p>`
-:
-""
-}
-
-${link}
-
-</article>
-
-`;
-
-}
-
-).join("");
-
-}
-
-
-
-/* CATEGORY BUTTONS */
-
-function createCategoryButtons(){
-
-const categories=[
-"All",
-...new Set(
-allArticles
-.map(a=>a.category)
-.filter(Boolean)
-)
 ];
 
 
-categoryList.innerHTML="";
+/* ---------------------------------------
+   05. TOOL DATA
+--------------------------------------- */
+
+const toolGroups = [
+
+{
+  name:"OA · 문서 업무",
+  english:"OFFICE & DOCUMENTS",
+  icon:"▤",
+  tools:[
+    "Microsoft Office Suite (Word, Excel, PowerPoint, Outlook)",
+    "아래아 한글",
+    "웹 브라우저"
+  ]
+},
+
+{
+  name:"웹 개발",
+  english:"WEB DEVELOPMENT",
+  icon:"⌘",
+  tools:[
+    "JavaScript",
+    "CSS",
+    "GitHub"
+  ]
+},
+
+{
+  name:"그래픽 · 영상",
+  english:"DESIGN & MEDIA",
+  icon:"✳",
+  tools:[
+    "Adobe Photoshop",
+    "Canva",
+    "MiriCanvas",
+    "Mangoboard",
+    "Adobe Premiere Pro"
+  ]
+},
+
+{
+  name:"협업 · 생산성",
+  english:"COLLABORATION",
+  icon:"▧",
+  tools:[
+    "Google Workspace (Sheets, Docs, Slides, Drive, Forms, Meet, Gmail)",
+    "Notion"
+  ]
+},
+
+{
+  name:"데이터 분석",
+  english:"DATA & ANALYTICS",
+  icon:"▥",
+  tools:[
+    "Data Analytics"
+  ]
+}
+
+];
 
 
-categories.forEach(
-category=>{
+/* ---------------------------------------
+   06. PROJECT RENDERING
+--------------------------------------- */
 
-const button=
-document.createElement("button");
+const cardDisplay = {
+  "eils-recruitment": {
+    title:"지원자 30명의 면접 일정 체계화",
+    subtitle:"평가 기준을 통일하고 면접 일정 조율 과정을 효율화했습니다.",
+    highlight:"면접 일정 조율 시간 약 67% 단축"
+  },
+  "student-council-interview": {
+    title:"직무에 맞춘 면접 질문 직접 설계",
+    subtitle:"기획국의 업무와 필요 역량을 바탕으로 공통·개별 질문을 구성했습니다.",
+    highlight:"면접 질문 설계 및 평가 참여"
+  },
+  "eils-candidate": {
+    title:"지원자 관점의 채용 경험 설계",
+    subtitle:"면접 전 안내부터 현장 응대와 결과 피드백까지 세심하게 운영했습니다.",
+    highlight:"면접 전·중·후 지원자 경험 개선"
+  },
+  "admissions-db": {
+    title:"수험생을 위한 온라인 Q&A 데이터베이스 구축",
+    subtitle:"질문을 수집하고 정확한 입학 정보를 확인해 답변을 축적했습니다.",
+    highlight:"반복 문의에 활용 가능한 Q&A DB 구축"
+  },
+  "admissions-fair": {
+    title:"대규모 입학 행사 현장 운영 지원",
+    subtitle:"입학박람회와 논술·면접 현장에서 수험생과 보호자를 안내했습니다.",
+    highlight:"2년 연속 현장 운영 경험"
+  },
+  "career-reporter": {
+    title:"학생 수요를 반영한 취업 콘텐츠 제작",
+    subtitle:"학생 약 20명을 직접 인터뷰하고 현직자를 섭외해 콘텐츠를 만들었습니다.",
+    highlight:"학생 20여 명 직접 인터뷰"
+  },
+  "hr-design": {
+    title:"HR 디자인 포트폴리오",
+    subtitle:"그래픽 디자인, 프레젠테이션, 에디토리얼, 영상 콘텐츠를 정리했습니다.",
+    highlight:"HR 디자인 포트폴리오 바로가기"
+  },
+  "eils-onboarding": {
+    title:"반복 오류를 줄이는 온보딩 가이드 제작",
+    subtitle:"각주 작성 기준을 정리하고 신입회원 오리엔테이션에서 공유했습니다.",
+    highlight:"평균 각주 벌점 약 62.5% 감소"
+  },
+  "eils-data": {
+    title:"회원 활동 데이터 체계적으로 관리",
+    subtitle:"출결과 벌점 현황을 기록하고 분기별 개인 현황을 안내했습니다.",
+    highlight:"회원 20명 출결·활동 데이터 관리"
+  }
+};
 
-button.className=
-"category-btn";
+const categoryLabels = {
+  meticulousness:"꼼꼼함",
+  execution:"실행력",
+  communication:"소통",
+  branding:"브랜딩"
+};
 
+function renderProjects(filter="all") {
 
-if(category==="All")
-button.classList.add("active");
+  const filtered = filter === "all"
+    ? projects
+    : projects.filter(project => project.category === filter);
 
+  $("#project-grid").innerHTML = filtered.map(project => `
 
-button.textContent=
-category;
+    <article
+      class="project-card"
+      data-project-id="${escapeHTML(project.id)}"
+      tabindex="0"
+      role="button"
+      aria-label="${escapeHTML(project.title)} 상세 보기"
+    >
 
+      <div class="project-image">
 
-button.addEventListener(
-"click",
-()=>{
+        <span class="project-index">${escapeHTML(project.number)}</span>
 
-currentCategory=
-category;
+        <div class="project-image-art">
+          ${escapeHTML(project.icon)}
+        </div>
 
-currentPage=1;
+        <span class="project-category-label">
+          ${escapeHTML(categoryLabels[project.category] || project.categoryName)}
+        </span>
 
+      </div>
 
-document
-.querySelectorAll(
-".category-btn"
-)
-.forEach(
-btn=>
-btn.classList.remove(
-"active"
-)
-);
+      <div class="project-content">
 
+        <span class="project-type">
+          ${escapeHTML(project.organization)}
+        </span>
 
-button.classList.add(
-"active"
-);
+        <h3>${escapeHTML((cardDisplay[project.id] || {}).title || project.title)}</h3>
 
+        <p>${escapeHTML((cardDisplay[project.id] || {}).subtitle || project.subtitle)}</p>
 
-filterArticles();
+        <div class="project-result">
+          ${project.externalLink
+            ? `<a class="project-portfolio-link" href="${escapeHTML(project.externalLink)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">✦ ${escapeHTML((cardDisplay[project.id] || {}).highlight || project.highlight)} ↗</a>`
+            : `✦ ${escapeHTML((cardDisplay[project.id] || {}).highlight || project.highlight)}`}
+        </div>
+
+        <div class="project-card-bottom">
+
+          <span>
+            ${escapeHTML(project.role)} · ${escapeHTML(project.period)}
+          </span>
+
+          <strong>↗</strong>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+  $("#project-count").textContent =
+    `${filtered.length} PROJECT${filtered.length === 1 ? "" : "S"}`;
+
+  initReveal();
 
 }
 
-);
+document.querySelectorAll(".filter-button").forEach(button => {
 
+  button.addEventListener("click",() => {
 
-categoryList.appendChild(
-button
-);
+    document.querySelectorAll(".filter-button").forEach(item => {
+      item.classList.remove("active");
+    });
 
-}
+    button.classList.add("active");
 
-);
-
-}
-
-
-
-/* SEARCH */
-
-searchInput.addEventListener(
-"input",
-function(){
-
-currentSearch=
-this.value
-.trim()
-.toLowerCase();
-
-
-currentPage=1;
-
-filterArticles();
-
-}
-);
-
-
-
-/* FILTER */
-
-function filterArticles() {
-
-  filteredArticles = allArticles.filter(article => {
-
-    if (article.showInArticles === false) {
-      return false;
-    }
-
-    const articleCategory =
-      String(article.category || "").trim().toLowerCase();
-
-    const selectedCategory =
-      String(currentCategory || "").trim().toLowerCase();
-
-    const matchesCategory =
-      selectedCategory === "all" ||
-      articleCategory === selectedCategory;
-
-    const searchableText = [
-      article.title,
-      article.description,
-      article.outlet,
-      article.category,
-      ...(Array.isArray(article.tags) ? article.tags : [])
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-
-    return (
-      matchesCategory &&
-      searchableText.includes(currentSearch)
-    );
+    renderProjects(button.dataset.filter);
 
   });
 
-  renderArticles();
-}
-
-
-
-
-/* ARTICLES */
-
-function renderArticles(){
-
-const totalArticles=
-filteredArticles.length;
-
-
-articleCount.textContent=
-`${totalArticles} ${
-totalArticles===1
-?"article"
-:"articles"
-}`;
-
-
-if(totalArticles===0){
-
-articlesList.innerHTML="";
-
-noResults.style.display=
-"block";
-
-pagination.innerHTML="";
-
-return;
-
-}
-
-
-noResults.style.display=
-"none";
-
-
-const totalPages=
-Math.ceil(
-totalArticles /
-ARTICLES_PER_PAGE
-);
-
-
-if(currentPage>totalPages)
-currentPage=totalPages;
-
-
-const startIndex=
-(currentPage-1) *
-ARTICLES_PER_PAGE;
-
-
-const pageArticles=
-
-filteredArticles.slice(
-startIndex,
-startIndex+
-ARTICLES_PER_PAGE
-);
-
-
-
-articlesList.innerHTML=
-
-pageArticles
-.map(
-(article,index)=>{
-
-
-const tags=
-
-(article.tags||[])
-.map(
-tag=>
-`<span class="article-tag">
-${escapeHTML(tag)}
-</span>`
-)
-.join("");
-
-
-const link=
-
-article.url
-
-?
-
-`<a
-href="${escapeAttribute(article.url)}"
-target="_blank"
-rel="noopener noreferrer"
-class="article-link">
-Read Article →
-</a>`
-
-:
-
-"";
-
-
-return `
-
-<article class="article-card">
-
-<div class="article-number">
-${String(
-startIndex+
-index+
-1
-).padStart(2,"0")}
-</div>
-
-
-<div>
-
-<div class="article-category">
-${escapeHTML(
-article.category||
-"Article"
-)}
-</div>
-
-
-<h3 class="article-title">
-  <a
-    href="${escapeAttribute(article.url || "#")}"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    ${escapeHTML(article.title || "")}
-  </a>
-</h3>
-
-
-${
-article.description
-
-?
-
-`<p class="article-description">
-${escapeHTML(
-article.description
-)}
-</p>`
-
-:
-
-""
-}
-
-
-${
-tags
-
-?
-
-`<div class="article-tags">
-${tags}
-</div>`
-
-:
-
-""
-}
-
-
-${link}
-
-</div>
-
-
-<div class="article-meta">
-
-<div class="article-outlet">
-${escapeHTML(
-article.outlet||
-""
-)}
-</div>
-
-<div>
-${formatDate(
-article.date
-)}
-</div>
-
-</div>
-
-
-</article>
-
-`;
-
-}
-)
-.join("");
-
-
-renderPagination(
-totalPages
-);
-
-}
-
-
-
-/* PAGINATION */
-
-function renderPagination(
-totalPages
-){
-
-pagination.innerHTML="";
-
-
-if(totalPages<=1)
-return;
-
-
-
-const previous=
-document.createElement(
-"button"
-);
-
-previous.className=
-"page-btn";
-
-previous.textContent="←";
-
-previous.disabled=
-currentPage===1;
-
-
-previous.addEventListener(
-"click",
-()=>{
-
-if(currentPage>1){
-
-currentPage--;
-
-renderArticles();
-
-scrollToArticles();
-
-}
-
-}
-);
-
-
-pagination.appendChild(
-previous
-);
-
-
-
-for(
-let page=1;
-page<=totalPages;
-page++
-){
-
-const button=
-document.createElement(
-"button"
-);
-
-button.className=
-"page-btn";
-
-button.textContent=
-page;
-
-
-if(page===currentPage)
-button.classList.add(
-"active"
-);
-
-
-button.addEventListener(
-"click",
-()=>{
-
-currentPage=
-page;
-
-renderArticles();
-
-scrollToArticles();
-
-}
-);
-
-
-pagination.appendChild(
-button
-);
-
-}
-
-
-
-const next=
-document.createElement(
-"button"
-);
-
-next.className=
-"page-btn";
-
-next.textContent="→";
-
-next.disabled=
-currentPage===totalPages;
-
-
-next.addEventListener(
-"click",
-()=>{
-
-if(
-currentPage<
-totalPages
-){
-
-currentPage++;
-
-renderArticles();
-
-scrollToArticles();
-
-}
-
-}
-);
-
-
-pagination.appendChild(
-next
-);
-
-}
-
-
-
-/* DATE */
-
-function formatDate(
-dateString
-){
-
-if(!dateString)
-return"";
-
-
-const parts=
-String(dateString).split("-");
-
-
-if(parts.length!==3)
-return dateString;
-
-
-const year=
-parts[0];
-
-const month=
-Number(parts[1]);
-
-const day=
-Number(parts[2]);
-
-
-const months=[
-"Jan",
-"Feb",
-"Mar",
-"Apr",
-"May",
-"Jun",
-"Jul",
-"Aug",
-"Sep",
-"Oct",
-"Nov",
-"Dec"
-];
-
-
-if(
-!year ||
-!month ||
-!day ||
-month<1 ||
-month>12
-)
-return dateString;
-
-
-return `${months[month-1]} ${day}, ${year}`;
-
-}
-
-
-
-/* SCROLL */
-
-function scrollToArticles(){
-
-document
-.getElementById("articles")
-.scrollIntoView({
-behavior:"smooth"
 });
 
-}
 
+/* ---------------------------------------
+   07. TOOL RENDERING
+--------------------------------------- */
 
+function renderTools() {
 
-/* SECURITY */
+  $("#tools-grid").innerHTML = toolGroups.map(group => `
 
-function escapeHTML(
-value
-){
+    <article class="tool-card">
 
-return String(value)
+      <div class="tool-card-heading">
 
-.replace(
-/&/g,
-"&amp;"
-)
+        <div class="tool-icon">
+          ${escapeHTML(group.icon)}
+        </div>
 
-.replace(
-/</g,
-"&lt;"
-)
+        <div>
+          <h3>${escapeHTML(group.name)}</h3>
+          <p>${escapeHTML(group.english)}</p>
+        </div>
 
-.replace(
-/>/g,
-"&gt;"
-)
+      </div>
 
-.replace(
-/"/g,
-"&quot;"
-)
+      <div class="tool-tags">
 
-.replace(
-/'/g,
-"&#039;"
-);
+        ${group.tools.map(tool => `
+          <span>${escapeHTML(tool)}</span>
+        `).join("")}
 
-}
+      </div>
 
+    </article>
 
-
-function escapeAttribute(
-value
-){
-
-return String(value)
-
-.replace(
-/"/g,
-"&quot;"
-)
-
-.replace(
-/'/g,
-"&#039;"
-);
+  `).join("");
 
 }
 
 
+/* ---------------------------------------
+   08. PROJECT DETAIL MODAL
+--------------------------------------- */
 
-loadArticles();
+const projectModal = $("#project-modal");
+const modalContent = $("#modal-content");
+
+function openProject(projectId) {
+
+  const project = projects.find(item => item.id === projectId);
+
+  if (!project) return;
+
+  previousFocus = document.activeElement;
+
+  const statsHTML = project.stats.map(stat => `
+
+    <div class="modal-stat">
+      <strong>${escapeHTML(stat.value)}</strong>
+      <span>${escapeHTML(stat.label)}</span>
+    </div>
+
+  `).join("");
+
+  const actionsHTML = project.actions.map(action => `
+
+    <li>${escapeHTML(action)}</li>
+
+  `).join("");
+
+  const toolsHTML = project.tools.map(tool => `
+
+    <span>${escapeHTML(tool)}</span>
+
+  `).join("");
+
+  const tagsHTML = project.tags.map(tag => `
+
+    <span>${escapeHTML(tag)}</span>
+
+  `).join("");
+
+  modalContent.innerHTML = `
+
+    <div class="modal-hero">
+
+      <span class="modal-category">
+        ${escapeHTML(project.categoryName)}
+      </span>
+
+      <h2>${escapeHTML(project.title)}</h2>
+
+      <p>${escapeHTML(project.subtitle)}</p>
+
+      <div class="modal-meta">
+
+        <span>
+          Organization
+          <strong>${escapeHTML(project.organization)}</strong>
+        </span>
+
+        <span>
+          Role
+          <strong>${escapeHTML(project.role)}</strong>
+        </span>
+
+        <span>
+          Period
+          <strong>${escapeHTML(project.period)}</strong>
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="modal-body">
+
+      <p class="modal-summary">
+        ${escapeHTML(project.description)}
+      </p>
+
+      <div class="modal-stats">
+        ${statsHTML}
+      </div>
+
+      <div class="detail-block">
+        <h3><span>01</span> BACKGROUND</h3>
+        <p>${escapeHTML(project.background)}</p>
+      </div>
+
+      <div class="detail-block">
+        <h3><span>02</span> CHALLENGE</h3>
+        <p>${escapeHTML(project.problem)}</p>
+      </div>
+
+      <div class="detail-block">
+        <h3><span>03</span> ACTIONS</h3>
+        <ul>${actionsHTML}</ul>
+      </div>
+
+      <div class="detail-block">
+        <h3><span>04</span> RESULT</h3>
+        <p>${escapeHTML(project.result)}</p>
+      </div>
+
+      <div class="detail-block">
+        <h3><span>05</span> MY CONTRIBUTION</h3>
+        <p>${escapeHTML(project.contribution)}</p>
+      </div>
+
+      <div class="detail-block">
+        <h3><span>06</span> TOOLS</h3>
+        <div class="detail-tools">
+          ${toolsHTML}
+        </div>
+      </div>
+
+      <div class="detail-block">
+        <h3>PROJECT KEYWORDS</h3>
+        <div class="detail-tools">
+          ${tagsHTML}
+        </div>
+      </div>
+
+      ${project.externalLink ? `
+
+        <div class="detail-block">
+
+          <h3><span>↗</span> PORTFOLIO LINK</h3>
+
+          <a
+            class="project-external-link"
+            href="${escapeHTML(project.externalLink)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            HR 디자인 포트폴리오 바로가기 ↗
+          </a>
+
+        </div>
+
+      ` : ""}
+
+    </div>
+
+  `;
+
+  projectModal.classList.remove("hidden");
+
+  document.body.classList.add("modal-open");
+
+  $("#modal-close").focus();
+
+}
+
+function closeProject() {
+
+  projectModal.classList.add("hidden");
+
+  document.body.classList.remove("modal-open");
+
+  if (previousFocus && typeof previousFocus.focus === "function") {
+    previousFocus.focus();
+  }
+
+}
+
+$("#project-grid").addEventListener("click",event => {
+
+  const card = event.target.closest(".project-card");
+
+  if (!card) return;
+
+  openProject(card.dataset.projectId);
+
+});
+
+$("#project-grid").addEventListener("keydown",event => {
+
+  if (event.key !== "Enter" && event.key !== " ") return;
+
+  const card = event.target.closest(".project-card");
+
+  if (!card) return;
+
+  event.preventDefault();
+
+  openProject(card.dataset.projectId);
+
+});
+
+$("#modal-close").addEventListener("click",closeProject);
+
+$("#modal-bottom-close").addEventListener("click",closeProject);
+
+$("#modal-overlay").addEventListener("click",closeProject);
+
+document.addEventListener("keydown",event => {
+
+  if (event.key === "Escape" && !projectModal.classList.contains("hidden")) {
+    closeProject();
+  }
+
+});
+
+
+/* ---------------------------------------
+   09. PHILOSOPHY INTERACTION
+--------------------------------------- */
+
+const philosophyResponses = {
+
+  a:
+    "면접 질문도 중요하지만, 지원자가 조직을 경험하는 방식은 질문만으로 결정되지 않습니다. 전형 전후의 안내와 소통까지 모두 채용 경험의 일부입니다.",
+
+  b:
+    "저는 지원자가 존중받았다고 느끼는 경험이 좋은 채용의 핵심이라고 생각합니다. 결과와 관계없이 모든 지원자가 조직에 대해 긍정적인 인상을 가질 수 있도록 세심한 운영이 필요합니다.",
+
+  c:
+    "결과 안내까지 걸리는 시간 역시 지원자 경험에 영향을 미칩니다. 정해진 일정에 맞춰 정확하고 신속하게 소통하는 것이 중요합니다."
+
+};
+
+document.querySelectorAll(".answer-button").forEach(button => {
+
+  button.addEventListener("click",() => {
+
+    document.querySelectorAll(".answer-button").forEach(item => {
+      item.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    $("#philosophy-response").textContent =
+      philosophyResponses[button.dataset.answer];
+
+  });
+
+});
+
+
+/* ---------------------------------------
+   10. MOBILE NAVIGATION
+--------------------------------------- */
+
+const mobileMenuButton = $("#mobile-menu-button");
+const navLinks = $(".nav-links");
+
+mobileMenuButton.addEventListener("click",() => {
+
+  const isOpen = navLinks.classList.toggle("open");
+
+  mobileMenuButton.setAttribute("aria-expanded",String(isOpen));
+
+  mobileMenuButton.textContent = isOpen ? "×" : "☰";
+
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+
+  link.addEventListener("click",() => {
+
+    navLinks.classList.remove("open");
+
+    mobileMenuButton.setAttribute("aria-expanded","false");
+
+    mobileMenuButton.textContent = "☰";
+
+  });
+
+});
+
+
+/* ---------------------------------------
+   11. SCROLL REVEAL
+--------------------------------------- */
+
+function initReveal() {
+
+  const revealTargets = document.querySelectorAll(
+    ".section-heading, .about-story, .timeline-card, " +
+    ".experience-item, .competency-intro>div, .project-card, " +
+    ".tool-card, .journey-step, .philosophy-heading, .value-item"
+  );
+
+  if (!("IntersectionObserver" in window)) {
+
+    revealTargets.forEach(target => {
+      target.classList.add("visible");
+    });
+
+    return;
+
+  }
+
+  const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add("visible");
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  },{
+    threshold:.12
+  });
+
+  revealTargets.forEach(target => {
+
+    if (!target.classList.contains("visible")) {
+
+      target.classList.add("reveal");
+
+      observer.observe(target);
+
+    }
+
+  });
+
+}
+
+
+/* ---------------------------------------
+   12. INITIALIZATION
+--------------------------------------- */
+
+function initialize() {
+
+  renderProjects();
+
+  renderTools();
+
+  const params = new URLSearchParams(location.search);
+
+  const sharedColor = params.get("color");
+
+  if (sharedColor) {
+
+    const color = getColorValue("#" + sharedColor);
+
+    if (color) {
+
+      colorInput.value = "#" + sharedColor;
+
+      showPortfolio(color,false);
+
+      return;
+
+    }
+
+  }
+
+  colorInput.value = "blue";
+
+  previewColor("blue");
+
+}
+
+initialize();
 
 </script>
-
 </body>
 </html>
