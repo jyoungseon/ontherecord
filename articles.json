@@ -1256,9 +1256,33 @@
 {
     "id": 156,
     "title": "[Photo News] Paris Baguette opens first drive-thru in Oklahoma",
-    "url": "https://www.koreaherald.com/article/10936130,
+    "url": "https://www.koreaherald.com/article/10936130",
     "date": "2026-11-13",
     "category": "Consumer",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+  {
+    "id": 157,
+    "title": "SK Telecom, Hyosung Heavy Industries team up on AI data centers",
+    "url": "https://www.koreaherald.com/article/10938419",
+    "date": "2026-11-16",
+    "category": "Industry",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+   {
+    "id": 158,
+    "title": "HD Hyundai targets North American energy market at RE+ 2026",
+    "url": "https://www.koreaherald.com/article/10938519",
+    "date": "2026-11-16",
+    "category": "Industry",
+    "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
+  },
+  {
+    "id": 159,
+    "title": "Hanwha financial firms hold global finance conference in New York",
+    "url": "https://www.koreaherald.com/article/108576019",
+    "date": "2026-11-16",
+    "category": "Society & Culture",
     "content": "Check reference requirements: Currency formatting guidelines apply for title amounts. Avoid abbreviations in the text where possible."
   }
 ]
