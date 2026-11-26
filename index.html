@@ -1322,51 +1322,57 @@ previous
 );
 
 
+const pagesToShow = new Set([
+  1,
+  2,
+  currentPage - 1,
+  currentPage,
+  currentPage + 1,
+  currentPage + 2,
+  totalPages
+]);
 
-for(
-let page=1;
-page<=totalPages;
-page++
-){
+const pages = [...pagesToShow]
+  .filter(page => page >= 1 && page <= totalPages)
+  .sort((a, b) => a - b);
 
-const button=
-document.createElement(
-"button"
-);
+let previousPage = 0;
 
-button.className=
-"page-btn";
+pages.forEach(page => {
 
-button.textContent=
-page;
+  if(page - previousPage > 1){
 
+    const dots = document.createElement("span");
+    dots.textContent = "…";
+    dots.className = "page-dots";
 
-if(page===currentPage)
-button.classList.add(
-"active"
-);
+    pagination.appendChild(dots);
 
+  }
 
-button.addEventListener(
-"click",
-()=>{
+  const button = document.createElement("button");
 
-currentPage=
-page;
+  button.className = "page-btn";
+  button.textContent = page;
 
-renderArticles();
+  if(page === currentPage)
+    button.classList.add("active");
 
-scrollToArticles();
+  button.addEventListener("click", () => {
 
-}
-);
+    currentPage = page;
 
+    renderArticles();
 
-pagination.appendChild(
-button
-);
+    scrollToArticles();
 
-}
+  });
+
+  pagination.appendChild(button);
+
+  previousPage = page;
+
+});
 
 
 
